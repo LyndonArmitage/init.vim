@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Linking .vimrc"
-ln .vimrc ~/.vimrc
+ln vimrc ~/.vimrc
