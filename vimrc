@@ -211,3 +211,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" Basic vim code
+set tabstop=2 shiftwidth=2 expandtab
+set number
+set mouse=a
