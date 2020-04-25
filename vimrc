@@ -28,6 +28,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'calviken/vim-gdscript3'
 call plug#end()
 
 " turn off vi compatibility mode
