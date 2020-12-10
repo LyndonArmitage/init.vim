@@ -29,6 +29,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'calviken/vim-gdscript3'
+Plug 'geverding/vim-hocon'
+Plug 'vim-scripts/DrawIt'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " turn off vi compatibility mode
@@ -62,7 +67,7 @@ let g:vim_markdown_folding_disabled = 1
 augroup markdown
 	autocmd FileType markdown,md call SetMarkdownOptions()
 	function SetMarkdownOptions()
-		set colorcolumn=80
+		set colorcolumn=80,100,120
 		set spell
 	endfunction
 augroup END
@@ -218,3 +223,74 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 set tabstop=2 shiftwidth=2 expandtab
 set number
 set mouse=a
+
+
+
+augroup greyscript
+	autocmd FileType greyscript call SetGreyScriptOptions()
+	function SetGreyScriptOptions()
+		set colorcolumn=80,100,120
+    highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+	endfunction
+augroup END
+au BufRead,BufNewFile *.src set filetype=greyscript
+
+augroup c
+  autocmd FileType c call SetCOptions()
+  autocmd FileType cpp call SetCOptions()
+  function SetCOptions()
+    set colorcolumn=80,100,120
+    " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+  endfunction
+augroup END
+
+" Limelight config for unknown colour schemes
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+
+" Goyo customisation for distraction free writing
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999 " Will make lines centre
+  set virtualedit=all
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=0
+  set virtualedit=
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+augroup latex
+  autocmd FileType tex call SetLatexOptions()
+  function SetLatexOptions()
+    set colorcolumn=80
+    set virtualedit=all
+    set spell
+    "Limelight
+  endfunction
+augroup END
