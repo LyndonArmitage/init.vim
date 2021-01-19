@@ -30,7 +30,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'calviken/vim-gdscript3'
 Plug 'geverding/vim-hocon'
-Plug 'vim-scripts/DrawIt'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
