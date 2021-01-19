@@ -34,6 +34,8 @@ Plug 'vim-scripts/DrawIt'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 call plug#end()
 
 " turn off vi compatibility mode
@@ -294,3 +296,8 @@ augroup latex
     "Limelight
   endfunction
 augroup END
+
+let g:vimwiki_list = [{'path': '~/.vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
+
+let g:vimwiki_ext2syntax = {'.wiki': 'media'}
+"let g:vimwiki_global_ext = 0
