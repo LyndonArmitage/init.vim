@@ -35,6 +35,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'andlrc/rpgle.vim'
 call plug#end()
 
 " turn off vi compatibility mode
@@ -69,7 +70,8 @@ augroup markdown
 	autocmd FileType markdown,md call SetMarkdownOptions()
 	function SetMarkdownOptions()
 		set colorcolumn=80,100,120
-		set spell
+		set textwidth=79
+    set spell
 	endfunction
 augroup END
 
@@ -291,6 +293,7 @@ augroup latex
   function SetLatexOptions()
     set colorcolumn=80
     set virtualedit=all
+    set textwidth=79
     set spell
     "Limelight
   endfunction
@@ -300,3 +303,28 @@ let g:vimwiki_list = [{'path': '~/.vimwiki/', 'syntax': 'markdown', 'ext': '.wik
 
 let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 "let g:vimwiki_global_ext = 0
+
+augroup rpgle
+  autocmd FileType rpgle call SetRPGOptions()
+  function SetRPGOptions()
+    set colorcolumn=6,100
+  endfunction
+augroup END
+
+augroup scala
+  autocmd FileType scala call SetScalaOptions()
+  function SetScalaOptions()
+    set colorcolumn=80,100,120
+    " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+  endfunction
+augroup END
+
+augroup mutt
+  " Mail
+  autocmd BufRead,BufNewFile *mutt-* call SetMuttOptions()
+  function SetMuttOptions()
+    set filetype=mail
+    set spell
+    set colorcolumn=72
+  endfunction
+augroup END
