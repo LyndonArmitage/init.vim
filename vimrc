@@ -36,6 +36,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'andlrc/rpgle.vim'
+Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
 call plug#end()
 
 " turn off vi compatibility mode
@@ -326,5 +327,13 @@ augroup mutt
     set filetype=mail
     set spell
     set colorcolumn=72
+  endfunction
+augroup END
+
+augroup gemini
+  autocmd FileType gmi call SetGeminiOptions()
+  function SetGeminiOptions()
+    set colorcolumn=80
+    set spell
   endfunction
 augroup END
