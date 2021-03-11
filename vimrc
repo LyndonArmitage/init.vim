@@ -241,6 +241,13 @@ if has('persistent_undo')
   set undofile
 endif
 
+augroup git
+  autocmd FileType gitcommit call SetGitOptions()
+  function SetGitOptions()
+    set noundofile
+  endfunction
+augroup END
+
 
 augroup greyscript
 	autocmd FileType greyscript call SetGreyScriptOptions()
@@ -339,6 +346,7 @@ augroup mutt
     set filetype=mail
     set spell
     set colorcolumn=72
+    set noundofile
   endfunction
 augroup END
 
