@@ -245,6 +245,7 @@ augroup git
   autocmd FileType gitcommit call SetGitOptions()
   function SetGitOptions()
     set noundofile
+    set colorcolumn=72,80
   endfunction
 augroup END
 
