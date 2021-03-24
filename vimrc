@@ -354,7 +354,7 @@ augroup END
 augroup gemini
   autocmd FileType gmi call SetGeminiOptions()
   function SetGeminiOptions()
-    set colorcolumn=80
+    "set colorcolumn=80
     set spell
   endfunction
 augroup END
