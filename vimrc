@@ -228,6 +228,11 @@ set tabstop=2 shiftwidth=2 expandtab
 set number
 set mouse=a
 
+" Allow sourcing of .vimrc from local files
+set exrc
+" Will restrict usage of some commands in local vimrc files
+set secure
+
 if has('persistent_undo')
   " https://vi.stackexchange.com/a/53
   " Let's save undo info!
