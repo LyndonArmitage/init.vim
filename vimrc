@@ -358,3 +358,11 @@ augroup gemini
     set spell
   endfunction
 augroup END
+
+" BYOND DM
+augroup dm
+  autocmd FileType dm call SetDMOptions()
+  function SetDMOptions()
+    set colorcolumn=80,100,120
+  endfunction
+augroup END

@@ -9,6 +9,10 @@
            "directory": "/tmp/ccls"
          }
        }
+    },
+    "dm-langserver": {
+      "command": "/home/lyndon/repos/byond/SpacemanDMM/target/debug/dm-langserver",
+      "filetypes": ["dm", "dme"]
     }
   }
 }
