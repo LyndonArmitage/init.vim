@@ -30,13 +30,13 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'calviken/vim-gdscript3'
 Plug 'geverding/vim-hocon'
-Plug 'blindFS/vim-taskwarrior'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'andlrc/rpgle.vim'
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
+Plug 'tweekmonster/startuptime.vim'
 call plug#end()
 
 " turn off vi compatibility mode
