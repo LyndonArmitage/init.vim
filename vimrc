@@ -37,6 +37,7 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'andlrc/rpgle.vim'
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " turn off vi compatibility mode
