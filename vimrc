@@ -375,4 +375,12 @@ augroup END
 
 " From https://www.reddit.com/r/vim/comments/fwfue3/is_there_any_way_to_use_vim_keybindings_vimstyle/fmo3rhi?utm_source=share&utm_medium=web2x&context=3
 " yank everything
-nmap <leader>ya gg0vG$"+y
+nmap <leader>ya :%y+<CR>
+
+" Crazy idea: disable arrow keys in normal mode
+" http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
