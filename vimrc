@@ -77,6 +77,7 @@ augroup markdown
 		set colorcolumn=80,100,120
 		set textwidth=79
     set spell
+    set formatoptions+=tcqa
 	endfunction
 augroup END
 
@@ -255,6 +256,7 @@ augroup git
   function SetGitOptions()
     set noundofile
     set colorcolumn=72,80
+    set textwidth=79
   endfunction
 augroup END
 
@@ -297,7 +299,6 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999 " Will make lines centre
-  set virtualedit=all
   Limelight
   " ...
 endfunction
@@ -310,7 +311,6 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   set scrolloff=0
-  set virtualedit=
   Limelight!
   " ...
 endfunction
@@ -323,6 +323,7 @@ augroup latex
   function SetLatexOptions()
     set colorcolumn=80
     set textwidth=79
+    set formatoptions+=tcqa
     set spell
     "Limelight
   endfunction
@@ -356,6 +357,7 @@ augroup mutt
     set spell
     set colorcolumn=72
     set noundofile
+    set formatoptions+=tcqa
   endfunction
 augroup END
 
