@@ -10,10 +10,12 @@ endif
 call plug#begin('~/.vim/bundle') " Using same dir as Vundle
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -38,6 +40,7 @@ Plug 'andlrc/rpgle.vim'
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " turn off vi compatibility mode
@@ -319,7 +322,6 @@ augroup latex
   autocmd FileType tex call SetLatexOptions()
   function SetLatexOptions()
     set colorcolumn=80
-    set virtualedit=all
     set textwidth=79
     set spell
     "Limelight
@@ -375,7 +377,7 @@ augroup END
 
 " From https://www.reddit.com/r/vim/comments/fwfue3/is_there_any_way_to_use_vim_keybindings_vimstyle/fmo3rhi?utm_source=share&utm_medium=web2x&context=3
 " yank everything
-nmap <leader>ya :%y+<CR>
+nmap <leader>ya :%y"+<CR>
 
 " Crazy idea: disable arrow keys in normal mode
 " http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
