@@ -377,9 +377,17 @@ augroup dm
   endfunction
 augroup END
 
+" SQL settings
+augroup sql
+  autocmd FileType sql call SetSQLOptions()
+  function SetSQLOptions()
+    set colorcolumn=80,100,120
+  endfunction
+augroup END
+
 " From https://www.reddit.com/r/vim/comments/fwfue3/is_there_any_way_to_use_vim_keybindings_vimstyle/fmo3rhi?utm_source=share&utm_medium=web2x&context=3
 " yank everything
-nmap <leader>ya :%y"+<CR>
+nmap <leader>ya :%y+<CR>
 
 " Crazy idea: disable arrow keys in normal mode
 " http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
