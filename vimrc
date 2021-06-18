@@ -77,7 +77,11 @@ augroup markdown
 		set colorcolumn=80,100,120
 		set textwidth=79
     set spell
-    set formatoptions+=tcqa
+    set formatoptions+=tcq
+    " IndentLine ovverrides conceallevel
+    let g:indentLine_enabled=0
+    let g:vim_markdown_conceal = 0
+    set conceallevel=0
 	endfunction
 augroup END
 
@@ -323,7 +327,7 @@ augroup latex
   function SetLatexOptions()
     set colorcolumn=80
     set textwidth=79
-    set formatoptions+=tcqa
+    set formatoptions+=tcq
     set spell
     "Limelight
   endfunction
@@ -357,7 +361,7 @@ augroup mutt
     set spell
     set colorcolumn=72
     set noundofile
-    set formatoptions+=tcqa
+    set formatoptions+=tcq
   endfunction
 augroup END
 
