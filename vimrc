@@ -296,6 +296,7 @@ let g:limelight_conceal_guifg = '#777777'
 
 
 " Goyo customisation for distraction free writing
+let g:goyo_width = 120
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
