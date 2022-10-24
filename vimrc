@@ -42,6 +42,7 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jparise/vim-graphql'
+Plug 'preservim/vim-pencil'
 call plug#end()
 
 " turn off vi compatibility mode
