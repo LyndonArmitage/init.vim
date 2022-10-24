@@ -41,6 +41,7 @@ Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 " turn off vi compatibility mode
@@ -390,6 +391,10 @@ augroup sql
     set colorcolumn=80,100,120
   endfunction
 augroup END
+
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " From https://www.reddit.com/r/vim/comments/fwfue3/is_there_any_way_to_use_vim_keybindings_vimstyle/fmo3rhi?utm_source=share&utm_medium=web2x&context=3
 " yank everything
