@@ -16,5 +16,9 @@
     }
   },
   "java.home": "/usr/lib/jvm/default",
-  "metals.javaHome": "/usr/lib/jvm/java-8-openjdk"
+  "metals.javaHome": "/usr/lib/jvm/java-8-openjdk",
+  "zig.enabled": true,
+  "zig.startUpMessage": true,
+  "zig.path": "zls",
+  "zig.debugLog": false
 }

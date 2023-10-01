@@ -41,6 +41,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jparise/vim-graphql'
 Plug 'preservim/vim-pencil'
+Plug 'ziglang/zig.vim'
 call plug#end()
 
 " turn off vi compatibility mode
