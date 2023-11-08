@@ -11,7 +11,7 @@
        }
     },
     "dm-langserver": {
-      "command": "/home/lyndon/repos/byond/SpacemanDMM/target/dm-langserver",
+      "command": "/home/lyndon/repos/byond/SpacemanDMM/target/release/dm-langserver",
       "filetypes": ["dm", "dme"]
     }
   },
@@ -20,5 +20,6 @@
   "zig.enabled": true,
   "zig.startUpMessage": true,
   "zig.path": "zls",
-  "zig.debugLog": false
+  "zig.debugLog": false,
+  "ltex.language": "en-GB"
 }
