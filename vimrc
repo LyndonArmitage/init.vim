@@ -10,7 +10,6 @@ endif
 call plug#begin('~/.vim/bundle') " Using same dir as Vundle
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -32,9 +31,6 @@ let mapleader = " "
 
 " Airline
 let g:airline_powerline_fonts = 1
-
-" NERDTree
-map <F4> :NERDTreeToggle<CR>
 
 " vim markdown-config
 let g:vim_markdown_folding_disabled = 1
