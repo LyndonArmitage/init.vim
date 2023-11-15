@@ -11,7 +11,6 @@ call plug#begin('~/.vim/bundle') " Using same dir as Vundle
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -30,18 +29,6 @@ nnoremap <SPACE> <Nop>
 let mapleader = " "
 
 " Plugin config below:
-
-
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" set the below value to 1 to make syntastic check on opening a file
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 " Airline
 let g:airline_powerline_fonts = 1
