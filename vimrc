@@ -47,8 +47,6 @@ augroup markdown
 		set textwidth=79
     set spell
     set formatoptions+=tcq
-    " IndentLine ovverrides conceallevel
-    let g:indentLine_enabled=0
     let g:vim_markdown_conceal = 0
     set conceallevel=0
 	endfunction
@@ -96,22 +94,11 @@ augroup git
   endfunction
 augroup END
 
-
-augroup greyscript
-	autocmd FileType greyscript call SetGreyScriptOptions()
-	function SetGreyScriptOptions()
-		set colorcolumn=80,100,120
-    highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
-	endfunction
-augroup END
-au BufRead,BufNewFile *.src set filetype=greyscript
-
 augroup c
   autocmd FileType c call SetCOptions()
   autocmd FileType cpp call SetCOptions()
   function SetCOptions()
     set colorcolumn=80,100,120
-    " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
   endfunction
 augroup END
 
@@ -122,13 +109,6 @@ augroup latex
     set textwidth=79
     set formatoptions+=tcq
     set spell
-  endfunction
-augroup END
-
-augroup rpgle
-  autocmd FileType rpgle call SetRPGOptions()
-  function SetRPGOptions()
-    set colorcolumn=6,100
   endfunction
 augroup END
 
@@ -155,7 +135,6 @@ augroup END
 augroup gemini
   autocmd FileType gmi call SetGeminiOptions()
   function SetGeminiOptions()
-    "set colorcolumn=80
     set spell
   endfunction
 augroup END
