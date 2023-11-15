@@ -1,23 +1,17 @@
-# Lyndon's init.vim/.vimrc
+# Lyndon's NeoVim Config
 
-These are my current vim configuration files.
+These are my current [NeoVim](https://github.com/neovim/neovim) configuration
+files.
 
-Originally I used `vim` 8+ but will be switching to `neovim`. I have included my
-original .vimrc file for reference but will be deleting everything and starting
-from scratch.  
-I will focus on compatibility with `neovim`.
+These were rewritten from Vimscript to Lua at the end of 2023.
+
+They require NeoVim 0.9+.
 
 ## Plugin Management
 
-Originally I was using Vundle for my plugins. But have now switched to vim-plug.
+For my first Vim configuration I used
+[Vundle](https://github.com/VundleVim/Vundle.vipm), then I switched to
+[vim-plug](https://github.com/junegunn/vim-plug). Currently
+[pckr.nvim](https://github.com/lewis6991/pckr.nvim) is being used to take
+advantage of NeoVims features.
 
-This was not a complex change to make.
-
-## Autocompletion
-
-For autocomplete I have decided to use coc.vim.  
-It is a Language Server Protocol based plugin that you can install linters and
-servers for.
-
-You install these using `:CocInstall` inside vim and in theory they should all
-run fine without any special configuration.
