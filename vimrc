@@ -31,21 +31,6 @@ let mapleader = " "
 " Airline
 let g:airline_powerline_fonts = 1
 
-" vim markdown-config
-let g:vim_markdown_folding_disabled = 1
-
-" Specific markdown file settings
-augroup markdown
-	autocmd FileType markdown,md call SetMarkdownOptions()
-	function SetMarkdownOptions()
-		set colorcolumn=80,100,120
-		set textwidth=79
-    set spell
-    set formatoptions+=tcq
-    let g:vim_markdown_conceal = 0
-    set conceallevel=0
-	endfunction
-augroup END
 
 set hidden
 
@@ -79,6 +64,21 @@ if has('persistent_undo')
   set undodir=~/.vim/undo-dir
   set undofile
 endif
+
+" START: FileType Mappings
+" Specific markdown file settings
+augroup markdown
+	autocmd FileType markdown,md call SetMarkdownOptions()
+	function SetMarkdownOptions()
+		set colorcolumn=80,100,120
+		set textwidth=79
+    set spell
+    set formatoptions+=tcq
+    let g:vim_markdown_conceal = 0
+    let g:vim_markdown_folding_disabled = 1
+    set conceallevel=0
+	endfunction
+augroup END
 
 augroup git
   autocmd FileType gitcommit call SetGitOptions()
@@ -149,6 +149,8 @@ augroup sql
     set colorcolumn=80,100,120
   endfunction
 augroup END
+
+" END: FileType Mappings
 
 let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 0
