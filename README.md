@@ -12,6 +12,6 @@ They require NeoVim 0.9+.
 For my first Vim configuration I used
 [Vundle](https://github.com/VundleVim/Vundle.vipm), then I switched to
 [vim-plug](https://github.com/junegunn/vim-plug). Currently
-[pckr.nvim](https://github.com/lewis6991/pckr.nvim) is being used to take
+[packer.nvim](https://github.com/wbthomason/packer.nvim) is being used to take
 advantage of NeoVims features.
 
