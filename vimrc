@@ -19,23 +19,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'aklt/plantuml-syntax'
-Plug 'uarun/vim-protobuf'
-Plug 'wlue/vim-dm-syntax'
-Plug 'udalov/kotlin-vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'geverding/vim-hocon'
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-Plug 'andlrc/rpgle.vim'
-Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'jparise/vim-graphql'
-Plug 'ziglang/zig.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
