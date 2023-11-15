@@ -33,11 +33,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'andlrc/rpgle.vim'
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
-Plug 'tweekmonster/startuptime.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jparise/vim-graphql'
-Plug 'preservim/vim-pencil'
 Plug 'ziglang/zig.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
