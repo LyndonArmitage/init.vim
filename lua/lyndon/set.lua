@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.opt.updatetime = 300
 
 vim.opt.hidden = true
 
