@@ -29,7 +29,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'geverding/vim-hocon'
-Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'andlrc/rpgle.vim'
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax'
@@ -299,11 +298,6 @@ augroup latex
     set spell
   endfunction
 augroup END
-
-let g:vimwiki_list = [{'path': '~/.vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
-
-let g:vimwiki_ext2syntax = {'.wiki': 'media'}
-"let g:vimwiki_global_ext = 0
 
 augroup rpgle
   autocmd FileType rpgle call SetRPGOptions()
