@@ -25,6 +25,9 @@ call plug#end()
 " turn off vi compatibility mode
 set nocompatible
 
+" Set spacebar to leader
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 " Plugin config below:
 
