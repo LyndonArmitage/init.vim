@@ -17,7 +17,6 @@ Plug 'roxma/vim-paste-easy'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'geverding/vim-hocon'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " turn off vi compatibility mode
