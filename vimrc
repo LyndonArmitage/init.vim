@@ -10,20 +10,15 @@ endif
 call plug#begin('~/.vim/bundle') " Using same dir as Vundle
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'roxma/vim-paste-easy'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'geverding/vim-hocon'
-Plug 'Yggdroot/indentLine'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
