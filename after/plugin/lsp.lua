@@ -3,31 +3,31 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
+  lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
 -- Dockerfile
 -- npm install -g dockerfile-language-server-nodejs
-require'lspconfig'.dockerls.setup{}
+require 'lspconfig'.dockerls.setup {}
 
 -- Bash
 -- npm i -g bash-language-server
-require'lspconfig'.bashls.setup{}
+require 'lspconfig'.bashls.setup {}
 
 -- C
 -- Installed with package
-require'lspconfig'.ccls.setup{}
+require 'lspconfig'.ccls.setup {}
 
 -- Zig
 -- Installed with package
-require'lspconfig'.zls.setup{}
+require 'lspconfig'.zls.setup {}
 
 -- Lua
 -- Installed with package
-require'lspconfig'.lua_ls.setup {
+require 'lspconfig'.lua_ls.setup {
   on_init = function(client)
     local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+    if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
       client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
         Lua = {
           runtime = {
@@ -54,4 +54,3 @@ require'lspconfig'.lua_ls.setup {
     return true
   end
 }
-

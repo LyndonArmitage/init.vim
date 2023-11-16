@@ -1,18 +1,18 @@
-require'nvim-treesitter.configs'.setup {
-  
+require 'nvim-treesitter.configs'.setup {
+
   ensure_installed = {
     "bash",
     "markdown",
     "markdown_inline",
     "json",
     "html",
-	  "javascript",
-	  "scala",
-	  "c",
-	  "lua",
-	  "vim",
-	  "vimdoc",
-	  "query"
+    "javascript",
+    "scala",
+    "c",
+    "lua",
+    "vim",
+    "vimdoc",
+    "query"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

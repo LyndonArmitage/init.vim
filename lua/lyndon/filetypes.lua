@@ -8,7 +8,7 @@ local markdown_group = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown,md",
   group = markdown_group,
-  callback = function(args)
+  callback = function()
     -- configuration goes in here
     vim.opt.colorcolumn = { 80, 100, 120 }
     vim.opt.textwidth = 79
@@ -27,7 +27,7 @@ local git_group = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   group = git_group,
-  callback = function(args)
+  callback = function()
     vim.opt.colorcolumn = { 50, 72, 80 }
     vim.opt.textwidth = 79
     vim.opt.spell = true
@@ -43,7 +43,7 @@ local latex_group = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "tex",
   group = latex_group,
-  callback = function(args)
+  callback = function()
     vim.opt.textwidth = 79
     vim.opt.spell = true
   end,
@@ -54,10 +54,10 @@ local mutt_group = vim.api.nvim_create_augroup(
   'mutt',
   { clear = false }
 )
-vim.api.nvim_create_autocmd( { "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*mutt-*",
   group = mutt_group,
-  callback = function(args)
+  callback = function()
     vim.opt.filetype = "mail"
     vim.opt.undofile = false
     vim.opt.colorcolumn = { 72, 80, 100 }
@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd( { "BufRead", "BufNewFile" }, {
   end,
 })
 
--- Gemini files 
+-- Gemini files
 local gemini_group = vim.api.nvim_create_augroup(
   'gemini',
   { clear = false }
@@ -74,7 +74,7 @@ local gemini_group = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gmi",
   group = gemini_group,
-  callback = function(args)
+  callback = function()
     vim.opt.spell = true
   end,
 })

@@ -1,4 +1,3 @@
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -8,18 +7,18 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
-  -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   -- Theme for NeoVim
-  use { 
+  use {
     "EdenEast/nightfox.nvim",
     config = function() vim.cmd.colorscheme("nightfox") end
   }
 
   -- Tree Sitter for nice syntax highlighting
-  use {"nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"}}
+  use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
   use 'nvim-treesitter/playground'
 
   -- Undo-Tree
@@ -38,11 +37,11 @@ return require('packer').startup(function(use)
       -- {'williamboman/mason-lspconfig.nvim'},
 
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
+      { 'neovim/nvim-lspconfig' },
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'L3MON4D3/LuaSnip'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
     }
   }
 
@@ -57,5 +56,4 @@ return require('packer').startup(function(use)
   use 'preservim/nerdtree'
   use 'ryanoasis/vim-devicons'
   use 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 end)
