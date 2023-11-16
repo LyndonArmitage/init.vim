@@ -1,6 +1,11 @@
 require'nvim-treesitter.configs'.setup {
   
   ensure_installed = {
+    "bash",
+    "markdown",
+    "markdown_inline",
+    "json",
+    "html",
 	  "javascript",
 	  "scala",
 	  "c",

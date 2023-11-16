@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   group = git_group,
   callback = function(args)
-    vim.opt.colorcolumn = { 72, 80, 100 }
+    vim.opt.colorcolumn = { 50, 72, 80 }
     vim.opt.textwidth = 79
     vim.opt.spell = true
     vim.opt.formatoptions:append("tcq")
