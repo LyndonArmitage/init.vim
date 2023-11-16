@@ -48,8 +48,14 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- enable paste when pasting automatically
   use 'roxma/vim-paste-easy'
+
+  -- Some nice status line stuff
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
+
+  -- Nicer file tree view
+  use 'preservim/nerdtree'
 
 end)
