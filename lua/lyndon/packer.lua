@@ -58,9 +58,9 @@ return require('packer').startup(function(use)
   -- Some nice status line stuff
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
+  use 'ryanoasis/vim-devicons'
 
   -- Nicer file tree view
-  use 'preservim/nerdtree'
-  use 'ryanoasis/vim-devicons'
-  use 'tiagofumo/vim-nerdtree-syntax-highlight'
+  use 'stevearc/oil.nvim'
+
 end)
