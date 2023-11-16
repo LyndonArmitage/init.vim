@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<F4>', vim.cmd.NERDTreeToggle)
+vim.keymap.set('n', '<F5>', vim.cmd.NERDTreeToggle)
