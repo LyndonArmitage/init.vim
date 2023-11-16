@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.updatetime = 300
 
 vim.opt.hidden = true

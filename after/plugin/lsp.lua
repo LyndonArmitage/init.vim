@@ -4,6 +4,9 @@ lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp_zero.default_keymaps({ buffer = bufnr })
+
+  local opts = { buffer = bufnr, remap = false }
+  vim.keymap.set("n", "<C-P>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 -- Dockerfile
