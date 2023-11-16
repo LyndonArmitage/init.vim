@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
 
+  -- LSP for most languages
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
@@ -44,6 +45,12 @@ return require('packer').startup(function(use)
       { 'L3MON4D3/LuaSnip' },
     }
   }
+
+  -- Debugging support
+  use 'mfussenegger/nvim-dap'
+
+  -- LSP For Scala
+  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 
   -- enable paste when pasting automatically
   use 'roxma/vim-paste-easy'
