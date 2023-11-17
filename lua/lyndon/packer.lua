@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
   -- Tree Sitter for nice syntax highlighting
   use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
   use 'nvim-treesitter/playground'
+  use("nvim-treesitter/nvim-treesitter-context")
 
   -- Undo-Tree
   use 'mbbill/undotree'
@@ -62,5 +63,9 @@ return require('packer').startup(function(use)
 
   -- Nicer file tree view
   use 'stevearc/oil.nvim'
+
+  -- ChatGPT? At this time of year? At this time of day? In this operating
+  -- system? Localised within your editor?
+  use 'robitx/gp.nvim'
 
 end)
