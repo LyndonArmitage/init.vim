@@ -1,11 +1,12 @@
 -- Metals configuration
-local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "scala", "sbt", "java" },
   callback = function()
     require("metals").initialize_or_attach({})
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover)
   end,
   group = nvim_metals_group,
 })
