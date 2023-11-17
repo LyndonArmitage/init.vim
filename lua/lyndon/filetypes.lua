@@ -28,6 +28,10 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   group = git_group,
   callback = function()
+    -- Generally, line 1 of a Git Commit should be a title and only be 50 chars
+    -- long.
+    -- Next should be an empty line
+    -- Then lines that reach about 72 or maximum 80 chars long
     vim.opt.colorcolumn = { 50, 72, 80 }
     vim.opt.textwidth = 79
     vim.opt.spell = true
@@ -75,6 +79,9 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "gmi",
   group = gemini_group,
   callback = function()
+    -- Gemini is column sensitive, so new lines should be purposefully added
+    vim.opt.colorcolumn = nil
     vim.opt.spell = true
+    vim.opt.wrap = true
   end,
 })
