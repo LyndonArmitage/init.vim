@@ -3,14 +3,14 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
-  --lsp_zero.default_keymaps({ buffer = bufnr })
+  lsp_zero.default_keymaps({ buffer = bufnr })
 
   local opts = { buffer = bufnr, remap = true }
   -- It's time to try out some keybinds, I will follow the defaults and maybe
   -- add my own similar to IntelliJ
 
   -- Ctrl+P shows signature help
-  vim.keymap.set("n", "<C-P>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "<C-P>", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
   -- <F18> is Actually Shift+<F6>
@@ -20,6 +20,7 @@ lsp_zero.on_attach(function(client, bufnr)
 
   -- Reformat buffer
   vim.keymap.set("n", "<F3>", vim.lsp.buf.format, opts)
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
 
   -- Go to Definition
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -37,8 +38,6 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-  
-
 end)
 
 -- Dockerfile
@@ -89,3 +88,15 @@ require 'lspconfig'.lua_ls.setup {
     return true
   end
 }
+
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+  })
+})
