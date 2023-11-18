@@ -50,11 +50,14 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Pretty windows for diagnostics etc
+  use({ "folke/trouble.nvim", requires = 'nvim-tree/nvim-web-devicons' })
+
   -- Debugging support
   use 'mfussenegger/nvim-dap'
 
   -- LSP For Scala
-  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+  use({ 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } })
 
   -- enable paste when pasting automatically
   use 'roxma/vim-paste-easy'
@@ -70,5 +73,4 @@ return require('packer').startup(function(use)
   -- ChatGPT? At this time of year? At this time of day? In this operating
   -- system? Localised within your editor?
   use 'robitx/gp.nvim'
-
 end)
