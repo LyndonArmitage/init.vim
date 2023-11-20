@@ -76,4 +76,7 @@ return require('packer').startup(function(use)
   -- ChatGPT? At this time of year? At this time of day? In this operating
   -- system? Localised within your editor?
   use 'robitx/gp.nvim'
+
+  -- Terminal
+  use "akinsho/toggleterm.nvim"
 end)
