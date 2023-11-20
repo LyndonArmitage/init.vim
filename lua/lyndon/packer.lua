@@ -50,6 +50,9 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- NeoVim LSP help
+  use 'folke/neodev.nvim'
+
   -- Pretty windows for diagnostics etc
   use({ "folke/trouble.nvim", requires = 'nvim-tree/nvim-web-devicons' })
 
