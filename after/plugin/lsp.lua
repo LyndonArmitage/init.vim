@@ -56,6 +56,13 @@ require 'lspconfig'.ccls.setup {}
 -- Installed with package
 require 'lspconfig'.zls.setup {}
 
+-- Python
+-- Installed with pip:
+-- pip install -U jedi-language-server
+-- or pacman:
+-- sudo pacman -S jedi-language-server
+require'lspconfig'.jedi_language_server.setup{}
+
 -- Setup NeoVim stuff before Lua LSP
 require("neodev").setup({})
 -- Lua
