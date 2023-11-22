@@ -85,3 +85,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.wrap = true
   end,
 })
+
+-- HOCON .conf files
+-- For now will match all .conf files
+local hocon_group = vim.api.nvim_create_augroup("hocon", { clear = true })
+vim.api.nvim_create_autocmd(
+  { 'BufNewFile', 'BufRead' },
+  { group = hocon_group, pattern = '*.conf', command = 'set ft=hocon' }
+)
