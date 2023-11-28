@@ -40,6 +40,11 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 end)
 
+-- Markdown
+-- Installed via package manager:
+-- sudo pacman -S marksman
+require 'lspconfig'.marksman.setup {}
+
 -- Dockerfile
 -- npm install -g dockerfile-language-server-nodejs
 require 'lspconfig'.dockerls.setup {}
@@ -61,14 +66,14 @@ require 'lspconfig'.zls.setup {}
 -- sudo pacman -S gopls
 -- NOT:
 -- go install golang.org/x/tools/gopls@latest
-require'lspconfig'.gopls.setup{}
+require 'lspconfig'.gopls.setup {}
 
 -- Python
 -- Installed with pip:
 -- pip install -U jedi-language-server
 -- or pacman:
 -- sudo pacman -S jedi-language-server
-require'lspconfig'.jedi_language_server.setup{}
+require 'lspconfig'.jedi_language_server.setup {}
 
 -- Setup NeoVim stuff before Lua LSP
 require("neodev").setup({})
@@ -77,13 +82,13 @@ require("neodev").setup({})
 require 'lspconfig'.lua_ls.setup {}
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
   })
 })
