@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
 
   -- Git Related plugin
   use 'tpope/vim-fugitive'
-  use 'airblade/vim-gitgutter'
+  use 'lewis6991/gitsigns.nvim'
 
   -- LSP for most languages
   use {
