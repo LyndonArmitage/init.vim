@@ -56,6 +56,13 @@ require 'lspconfig'.ccls.setup {}
 -- Installed with package
 require 'lspconfig'.zls.setup {}
 
+-- Go
+-- Installed with command:
+-- sudo pacman -S gopls
+-- NOT:
+-- go install golang.org/x/tools/gopls@latest
+require'lspconfig'.gopls.setup{}
+
 -- Python
 -- Installed with pip:
 -- pip install -U jedi-language-server
