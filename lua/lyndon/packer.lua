@@ -79,4 +79,10 @@ return require('packer').startup(function(use)
 
   -- Terminal
   use "akinsho/toggleterm.nvim"
+
+  -- Markdown previews
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
 end)
