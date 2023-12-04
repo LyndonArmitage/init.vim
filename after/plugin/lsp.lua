@@ -83,15 +83,7 @@ require 'lspconfig'.lua_ls.setup {}
 
 -- Rust
 -- Installed with rustup
-require 'lspconfig'.rls.setup {
-  settings = {
-    rust = {
-      unstable_features = true,
-      build_on_save = false,
-      all_features = true,
-    },
-  },
-}
+require 'lspconfig'.rust_analyzer.setup {}
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
