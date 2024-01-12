@@ -93,3 +93,17 @@ vim.api.nvim_create_autocmd(
   { 'BufNewFile', 'BufRead' },
   { group = hocon_group, pattern = '*.conf', command = 'set ft=hocon' }
 )
+
+-- Quickfix window
+local quickfix_group = vim.api.nvim_create_augroup(
+  'quickfix',
+  { clear = false }
+)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  group = quickfix_group,
+  callback = function()
+    vim.opt.colorcolumn = nil
+    vim.opt.relativenumber = false
+  end,
+})
