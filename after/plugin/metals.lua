@@ -6,6 +6,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     local metals_config = require("metals").bare_config()
     metals_config.settings.testUserInterface = "Test Explorer"
+    metals_config.settings.serverVersion = "latest.snapshot" -- Maybe remove?
     metals_config.init_options.statusBarProvider = "on"
     metals_config.init_options.testExplorerProvider = true
 
