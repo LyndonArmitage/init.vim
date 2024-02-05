@@ -18,8 +18,8 @@ return require('packer').startup(function(use)
   use {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { {"nvim-lua/plenary.nvim"} }
-}
+    requires = { { "nvim-lua/plenary.nvim" } }
+  }
 
   -- Theme for NeoVim
   use {
@@ -82,6 +82,13 @@ return require('packer').startup(function(use)
 
   -- Nicer file tree view
   use 'stevearc/oil.nvim'
+
+  -- Add back gx opening links
+  use ({
+    'josa42/nvim-gx',
+    config = function() vim.keymap.set('n', 'gx', require('gx').gx) end
+  })
+  -- in nvim 10.X this will not be needed
 
   -- ChatGPT? At this time of year? At this time of day? In this operating
   -- system? Localised within your editor?
