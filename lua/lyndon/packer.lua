@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
   }
 
   -- Tree Sitter for nice syntax highlighting
-  use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use 'nvim-treesitter/playground'
   use("nvim-treesitter/nvim-treesitter-context")
 
