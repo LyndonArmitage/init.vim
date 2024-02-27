@@ -59,3 +59,5 @@ end)
 vim.keymap.set("n", "<leader>dl", function()
   dap.run_last()
 end)
+
+require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')

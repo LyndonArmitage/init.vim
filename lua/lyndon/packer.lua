@@ -72,6 +72,9 @@ return require('packer').startup(function(use)
   -- LSP For Scala
   use({ 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } })
 
+  -- Debugging for python
+  use 'mfussenegger/nvim-dap-python'
+
   -- enable paste when pasting automatically
   use 'roxma/vim-paste-easy'
 
