@@ -61,3 +61,4 @@ vim.keymap.set("n", "<leader>dl", function()
 end)
 
 require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+require("nvim-dap-virtual-text").setup()

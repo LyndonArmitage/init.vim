@@ -75,6 +75,9 @@ return require('packer').startup(function(use)
   -- Debugging for python
   use 'mfussenegger/nvim-dap-python'
 
+  -- Add debug text on screen
+  use 'theHamsta/nvim-dap-virtual-text'
+
   -- enable paste when pasting automatically
   use 'roxma/vim-paste-easy'
 
