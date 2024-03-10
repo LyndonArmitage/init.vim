@@ -88,6 +88,14 @@ require 'lspconfig'.lua_ls.setup {}
 -- Installed with rustup
 require 'lspconfig'.rust_analyzer.setup {}
 
+-- JavaScript/TypeScript
+-- Installed with npm:
+-- npm i -g vscode-langservers-extracted
+require'lspconfig'.eslint.setup {}
+-- html
+-- Installed the same way
+require'lspconfig'.html.setup {}
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
