@@ -34,6 +34,9 @@ lsp_zero.on_attach(function(client, bufnr)
   -- List references, pretty good!
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
+  -- Codelens 
+  vim.keymap.set("n", "gc", vim.lsp.codelens.run, opts)
+
   -- Diagnostics stuff
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
