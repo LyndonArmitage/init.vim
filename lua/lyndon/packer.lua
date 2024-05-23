@@ -108,4 +108,8 @@ return require('packer').startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  -- Heritage simply makes sure any parent directories exist when writing a new
+  -- file.
+  use "jessarcher/vim-heritage"
 end)
