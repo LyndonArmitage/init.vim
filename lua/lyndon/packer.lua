@@ -21,6 +21,15 @@ return require('packer').startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } }
   }
 
+  -- arrow is like harpoon but more opinionated
+  use { 'otavioschwanck/arrow.nvim', config = function()
+    require('arrow').setup({
+      show_icons = true,
+      leader_key = ';', -- Recommended to be a single key
+      buffer_leader_key = 'm', -- Per Buffer Mappings
+    })
+  end }
+
   -- Theme for NeoVim
   use {
     "EdenEast/nightfox.nvim",
