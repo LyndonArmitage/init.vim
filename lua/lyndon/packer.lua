@@ -112,4 +112,9 @@ return require('packer').startup(function(use)
   -- Heritage simply makes sure any parent directories exist when writing a new
   -- file.
   use "jessarcher/vim-heritage"
+
+  -- PlantUML Syntax is not supported by Tree Sitter
+  use "aklt/plantuml-syntax"
+  use "tyru/open-browser.vim"
+  use "weirongxu/plantuml-previewer.vim"
 end)
