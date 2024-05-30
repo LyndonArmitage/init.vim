@@ -126,4 +126,7 @@ return require('packer').startup(function(use)
   use "aklt/plantuml-syntax"
   use "tyru/open-browser.vim"
   use "weirongxu/plantuml-previewer.vim"
+
+  -- Slightly nicer UI
+  use 'stevearc/dressing.nvim'
 end)
