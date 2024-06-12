@@ -1,24 +1,22 @@
 -- Remaps for Vim
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- Yank everything to clipboard
-vim.keymap.set("n", "<leader>ya", ":%y+<CR>")
+vim.keymap.set("n", "<leader>ya", ":%y+<CR>", { desc = "Yank all contents to system clipboard" })
 
 -- Yank to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank line to system clipboard" })
 
 -- Quickfix and location window navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>c", "<cmd>cclose<CR>")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Quickfix window next" })
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Quickfix window previous" })
+vim.keymap.set("n", "<leader>c", "<cmd>cclose<CR>", { desc = "Close Quickfix window" })
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Location window next" })
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Location window previous" })
 
 -- Remove bindings
 vim.keymap.set("n", "Q", "<NOP>")
 
 -- Set terminal binding for easier exiting
-vim.keymap.set("t", "<leader><ESC>", "<C-\\><C-n>")
+vim.keymap.set("t", "<leader><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

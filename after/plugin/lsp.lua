@@ -6,44 +6,52 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({ buffer = bufnr })
 
   local opts = { buffer = bufnr, remap = true }
+  local function keymapOpts(desc)
+    return {
+      buffer = bufnr,
+      remap = true,
+      desc = "LSP " .. desc,
+    }
+  end
   -- It's time to try out some keybinds, I will follow the defaults and maybe
   -- add my own similar to IntelliJ
 
   -- Ctrl+P shows signature help
-  vim.keymap.set("n", "<C-P>", vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "<C-P>", vim.lsp.buf.signature_help, keymapOpts("Signature Help"))
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, keymapOpts("Hover"))
 
   -- <F18> is Actually Shift+<F6>
   -- So this matches IntelliJs refactor/rename
-  vim.keymap.set("n", "<F18>", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename, opts)
+  vim.keymap.set("n", "<F18>", vim.lsp.buf.rename, keymapOpts("Rename"))
+  vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename, keymapOpts("Rename"))
 
   -- Reformat buffer
-  vim.keymap.set("n", "<F3>", vim.lsp.buf.format, opts)
-  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+  vim.keymap.set("n", "<F3>", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
 
   -- Go to Definition
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, keymapOpts("Go to Definition"))
   -- Go to Declaration (not always supported)
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, keymapOpts("Go to Declaration"))
   -- Go to type def
-  vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
+  vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, keymapOpts("Go to Type Definition"))
   -- Go to implementation
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, keymapOpts("Go to implementation"))
 
   -- List references, pretty good!
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, keymapOpts("List References"))
 
-  -- Codelens 
-  vim.keymap.set("n", "gc", vim.lsp.codelens.run, opts)
+  -- Codelens
+  vim.keymap.set("n", "gc", vim.lsp.codelens.run, keymapOpts("Run Codelens"))
 
   -- Diagnostics stuff
-  vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+  vim.keymap.set("n", "gl", vim.diagnostic.open_float, keymapOpts("Open Diagnostics"))
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, keymapOpts("Previous diagnostic"))
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, keymapOpts("Next diagnostic"))
 
-  -- list symbols in the document: Ctrl Shift n 
-  vim.keymap.set("n", "<C-N>", require("telescope.builtin").lsp_document_symbols, opts)
+  -- list symbols in the document: Ctrl Shift n
+  vim.keymap.set("n", "<C-N>", require("telescope.builtin").lsp_document_symbols,
+    keymapOpts("List all symbols in document"))
 end)
 
 -- Markdown
@@ -94,10 +102,10 @@ require 'lspconfig'.rust_analyzer.setup {}
 -- JavaScript/TypeScript
 -- Installed with npm:
 -- npm i -g vscode-langservers-extracted
-require'lspconfig'.eslint.setup {}
+require 'lspconfig'.eslint.setup {}
 -- html
 -- Installed the same way
-require'lspconfig'.html.setup {}
+require 'lspconfig'.html.setup {}
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }

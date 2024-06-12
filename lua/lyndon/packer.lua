@@ -133,4 +133,18 @@ return require('packer').startup(function(use)
   -- Add comment highlighting
   use({ "folke/todo-comments.nvim", requires = { "nvim-lua/plenary.nvim" } })
   -- // TODO: Foo
+
+  -- Add which-key for testing key combo highlighting
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 end)

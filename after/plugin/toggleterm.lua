@@ -1,5 +1,5 @@
-require("toggleterm").setup{
+require("toggleterm").setup {
 
-  vim.keymap.set("n", "<leader>`", vim.cmd.ToggleTerm)
+  vim.keymap.set("n", "<leader>`", vim.cmd.ToggleTerm, { desc = "Toggle Terminal" })
 
 }

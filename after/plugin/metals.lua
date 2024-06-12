@@ -12,12 +12,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
     metals_config.on_attach = function(client, bufnr)
       require("metals").setup_dap()
-      vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end)
-      vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end)
+      vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { desc = "Go to next diagnostic" })
+      vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { desc = "Go to previous diagnostic" })
       vim.keymap.set("n", "K", vim.lsp.buf.hover)
-      vim.keymap.set("n", "<leader>t", function() require("telescope").extensions.metals.commands() end)
-      vim.keymap.set("n", "<leader>Tr", function() require("metals.tvp").toggle_tree_view() end)
-      vim.keymap.set("n", "<leader>TR", function() require("metals.tvp").reveal_in_tree() end)
+      vim.keymap.set("n", "<leader>t", function() require("telescope").extensions.metals.commands() end,
+        { desc = "Toggle Metals Telescope" })
+      vim.keymap.set("n", "<leader>Tr", function() require("metals.tvp").toggle_tree_view() end,
+        { desc = "Toggle Metals Tree View" })
+      vim.keymap.set("n", "<leader>TR", function() require("metals.tvp").reveal_in_tree() end,
+        { desc = "Reveal in Metals Tree View" })
     end
     require("metals").initialize_or_attach(metals_config)
   end,

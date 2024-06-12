@@ -34,35 +34,35 @@ dap.configurations.c = {
 -- DAP keybinds based on: https://github.com/scalameta/nvim-metals/discussions/39
 vim.keymap.set("n", "<leader>dc", function()
   dap.continue()
-end)
+end, { desc = "Continue debugging" })
 
 vim.keymap.set("n", "<leader>dr", function()
   dap.repl.toggle()
-end)
+end, { desc = "Toggle Debug REPL" })
 
 vim.keymap.set("n", "<leader>dK", function()
   require("dap.ui.widgets").hover()
-end)
+end, { desc = "Show Debug hover widgets" })
 
 vim.keymap.set("n", "<leader>dt", function()
   dap.toggle_breakpoint()
-end)
+end, { desc = "Toggle Breakpoint" })
 
 vim.keymap.set("n", "<leader>dso", function()
   dap.step_over()
-end)
+end, { desc = "Step Over" })
 
 vim.keymap.set("n", "<leader>dsi", function()
   dap.step_into()
-end)
+end, { desc = "Step Into" })
 
 vim.keymap.set("n", "<leader>dl", function()
   dap.run_last()
-end)
+end, { desc = "Run Last Debug Run" })
 
 vim.keymap.set("n", "<leader>dq", function()
   dap.terminate()
-end)
+end, { desc = "Terminate Debug run" })
 
 require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 require("nvim-dap-virtual-text").setup()
