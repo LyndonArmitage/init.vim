@@ -101,7 +101,7 @@ return require('packer').startup(function(use)
   -- Add back gx opening links
   use({
     'josa42/nvim-gx',
-    config = function() vim.keymap.set('n', 'gx', require('gx').gx) end
+    config = function() vim.keymap.set('n', 'gx', require('gx').gx, { desc = "Open in Browser" }) end
   })
   -- in nvim 10.X this will not be needed
 
