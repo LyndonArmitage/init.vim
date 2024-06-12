@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   use { 'otavioschwanck/arrow.nvim', config = function()
     require('arrow').setup({
       show_icons = true,
-      leader_key = ';', -- Recommended to be a single key
+      leader_key = ';',        -- Recommended to be a single key
       buffer_leader_key = 'm', -- Per Buffer Mappings
     })
   end }
@@ -99,7 +99,7 @@ return require('packer').startup(function(use)
   use 'stevearc/oil.nvim'
 
   -- Add back gx opening links
-  use ({
+  use({
     'josa42/nvim-gx',
     config = function() vim.keymap.set('n', 'gx', require('gx').gx) end
   })
@@ -129,4 +129,8 @@ return require('packer').startup(function(use)
 
   -- Slightly nicer UI
   use 'stevearc/dressing.nvim'
+
+  -- Add comment highlighting
+  use({ "folke/todo-comments.nvim", requires = { "nvim-lua/plenary.nvim" } })
+  -- // TODO: Foo
 end)
