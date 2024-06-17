@@ -1,5 +1,5 @@
 local conf = {
-  openai_api_key = os.getenv("OPENAI_API_TOKEN")
+  openai_api_key = { "pass", "personal/code/nvim-openai-key" }
 }
 
 require("gp").setup(conf)
