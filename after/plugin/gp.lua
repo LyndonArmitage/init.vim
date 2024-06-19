@@ -1,5 +1,6 @@
+local config_dir = vim.fn.stdpath('config')
 local conf = {
-  openai_api_key = { "bash", "get-openai-api.sh" }
+  openai_api_key = { "bash", config_dir .. "/get-openai-api.sh" }
 }
 
 require("gp").setup(conf)
