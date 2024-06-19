@@ -1,5 +1,5 @@
 local conf = {
-  openai_api_key = { "pass", "personal/code/nvim-openai-key" }
+  openai_api_key = { "bash", "get-openai-api.sh" }
 }
 
 require("gp").setup(conf)
