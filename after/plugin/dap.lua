@@ -19,17 +19,44 @@ dap.configurations.scala = {
   },
 }
 
-dap.configurations.c = {
+-- dap.configurations.c = {
+--   {
+--     name = "Launch",
+--     type = "gdb",
+--     request = "launch",
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = "${workspaceFolder}",
+--   },
+-- }
+
+dap.adapters.codelldb = {
+  type = 'server',
+  port = "1300",
+  executable = {
+    command = '/usr/bin/codelldb',
+    args = {"--port", "1300"},
+    -- On windows you may have to uncomment this:
+    -- detached = false,
+  }
+}
+
+dap.configurations.cpp = {
   {
-    name = "Launch",
-    type = "gdb",
+    name = "Launch file",
+    type = "codelldb",
     request = "launch",
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
-    cwd = "${workspaceFolder}",
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
   },
 }
+
+dap.configurations.rust = dap.configurations.cpp
+dap.configurations.c = dap.configurations.cpp
 
 -- DAP keybinds based on: https://github.com/scalameta/nvim-metals/discussions/39
 vim.keymap.set("n", "<leader>dc", function()
