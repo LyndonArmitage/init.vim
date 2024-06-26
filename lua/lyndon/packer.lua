@@ -14,13 +14,6 @@ return require('packer').startup(function(use)
   -- This should speed up telescope
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  -- harpoon is supposed to make it quicker to jump between stuff
-  use {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    requires = { { "nvim-lua/plenary.nvim" } }
-  }
-
   -- arrow is like harpoon but more opinionated
   use { 'otavioschwanck/arrow.nvim', config = function()
     require('arrow').setup({
