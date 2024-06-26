@@ -147,4 +147,25 @@ return require('packer').startup(function(use)
       }
     end
   }
+
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "v3.8.0", -- recommended, use latest release instead of latest commit
+    requires = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    config = function()
+      require("obsidian").setup({
+        workspaces = {
+          {
+            name = "work",
+            path = "/home/lyndon/Documents/obsidian/Work Notes",
+          },
+        },
+      })
+    end,
+  })
 end)
