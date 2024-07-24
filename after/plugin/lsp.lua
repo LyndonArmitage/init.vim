@@ -107,6 +107,13 @@ require 'lspconfig'.eslint.setup {}
 -- Installed the same way
 require 'lspconfig'.html.setup {}
 
+-- Terraform completion
+-- Requires terraform-ls
+-- Is in AUR:
+-- pamac install terraform-ls-bin
+-- Might also want terraform itself installed
+require'lspconfig'.terraformls.setup{}
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
