@@ -114,6 +114,10 @@ require 'lspconfig'.html.setup {}
 -- Might also want terraform itself installed
 require'lspconfig'.terraformls.setup{}
 
+-- Kotlin
+-- Installed with pamac
+require'lspconfig'.kotlin_language_server.setup{}
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
