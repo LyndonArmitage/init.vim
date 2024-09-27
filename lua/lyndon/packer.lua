@@ -161,4 +161,10 @@ return require('packer').startup(function(use)
       })
     end,
   })
+
+  -- Writing Plugins
+  use 'junegunn/goyo.vim'
+  use 'junegunn/limelight.vim'
+  use 'preservim/vim-pencil'
+
 end)
