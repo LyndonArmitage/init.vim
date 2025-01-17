@@ -7,6 +7,7 @@ require 'nvim-treesitter.configs'.setup {
     "json",
     "html",
     "javascript",
+    "java",
     "scala",
     "c",
     "lua",
@@ -14,6 +15,8 @@ require 'nvim-treesitter.configs'.setup {
     "vimdoc",
     "query"
   },
+
+  ignore_install = {},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
