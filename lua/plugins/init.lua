@@ -72,6 +72,15 @@ return {
       "nvim-treesitter/nvim-treesitter"
     }
   },
+  -- Autoclosing of tags in html and other document types with tags
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter"
+    },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  },
 
   -- Git related plugins
   {
