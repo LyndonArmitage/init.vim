@@ -2,16 +2,16 @@ return {
 
   -- This is the theme
   {
-  "EdenEast/nightfox.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.cmd([[colorscheme nightfox]])
-  end,
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme nightfox]])
+    end,
   },
 
   -- Nice file editor
-  { "stevearc/oil.nvim", opts = {} },
+  { "stevearc/oil.nvim",           opts = {} },
 
   -- Useful commands for plugins
   {
@@ -21,10 +21,11 @@ return {
 
   -- fuzzy file finder
   {
-    "nvim-telescope/telescope.nvim", tag = '0.1.8',
+    "nvim-telescope/telescope.nvim",
+    tag = '0.1.8',
     -- or                              , branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
+    config = function()
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
       vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = "Find Git Files" })
@@ -49,7 +50,7 @@ return {
   {
     "vim-airline/vim-airline",
     lazy = false,
-    init = function ()
+    init = function()
       vim.g.airline_powerline_fonts = 1
     end
   },
@@ -64,12 +65,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-  },
-  {
-    'nvim-treesitter/playground',
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter"
-    }
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -101,9 +96,16 @@ return {
       "GMove",
       "GDelete",
       "GBrowse"
+    },
+    dependencies = {
+      -- Adds ability to GBrowse to GitHub
+      "tpope/vim-rhubarb",
+      -- Adds ability to GBrowse GitLab
+      "shumphrey/fugitive-gitlab.vim",
     }
   },
-  { "lewis6991/gitsigns.nvim", opts = {}},
+  -- Git signs are nice to have to show changes at a glance
+  { "lewis6991/gitsigns.nvim", opts = {} },
 
   -- pretty diagnostics
   {
@@ -157,7 +159,7 @@ return {
     },
     opts = {
       show_icons = true,
-      leader_key = ';', -- Recommended to be a single key
+      leader_key = ';',        -- Recommended to be a single key
       buffer_leader_key = 'm', -- Per Buffer Mappings
     }
   },
@@ -167,7 +169,7 @@ return {
 
   -- ChatGPT? At this time of year? At this time of day? In this operating
   -- system? Localised within your editor?
-   { "robitx/gp.nvim" },
+  { "robitx/gp.nvim" },
 
   -- Heritage simply makes sure any parent directories exist when writing a new
   -- file.
@@ -175,7 +177,7 @@ return {
 
   -- PlantUML Syntax is not supported by Tree Sitter
   { "aklt/plantuml-syntax" },
-  { "tyru/open-browser.vim", lazy = true },
+  { "tyru/open-browser.vim",   lazy = true },
   {
     "weirongxu/plantuml-previewer.vim",
     dependencies = {
