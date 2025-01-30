@@ -1,1 +1,1 @@
-require("lyndon")
+require("config.lazy")
