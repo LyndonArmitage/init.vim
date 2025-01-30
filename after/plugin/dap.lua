@@ -91,5 +91,3 @@ vim.keymap.set("n", "<leader>dq", function()
   dap.terminate()
 end, { desc = "Terminate Debug run" })
 
-require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
-require("nvim-dap-virtual-text").setup()

@@ -14,6 +14,7 @@ return {
       "nvim-lua/plenary.nvim",
       "mfussenegger/nvim-dap"
     },
+    ft = { "scala", "sbt", "java" },
     opts = function()
       local metals_config = require("metals").bare_config()
       metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -37,6 +38,7 @@ return {
     end,
     config = function(metals, metals_config)
       vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "scala", "sbt", "java" },
         callback = function()
           require("metals").initialize_or_attach(metals_config)
         end
@@ -51,12 +53,18 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap"
     },
+    main = "dap-python",
+    ft = "python",
+    config = function ()
+      require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+    end
   },
   {
     "theHamsta/nvim-dap-virtual-text",
     dependencies = {
       "mfussenegger/nvim-dap"
     },
+    opts = {}
   },
   -- DAP Support for cmp
   {

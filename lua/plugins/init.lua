@@ -128,14 +128,6 @@ return {
   -- Automatic pasting
   { "roxma/vim-paste-easy" },
 
-  -- Add back gx for opening links
-  {
-    "josa42/nvim-gx",
-    config = function()
-      vim.keymap.set('n', 'gx', require('gx').gx, { desc = "Open in Browser" })
-    end
-  },
-
   -- ChatGPT? At this time of year? At this time of day? In this operating
   -- system? Localised within your editor?
    { "robitx/gp.nvim" },
