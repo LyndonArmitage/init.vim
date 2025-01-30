@@ -11,7 +11,7 @@ return {
   },
 
   -- Nice file editor
-  { "stevearc/oil.nvim" },
+  { "stevearc/oil.nvim", opts = {} },
 
   -- Useful commands for plugins
   {
@@ -24,6 +24,17 @@ return {
     "nvim-telescope/telescope.nvim", tag = '0.1.8',
     -- or                              , branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
+    config = function ()
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
+      vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = "Find Git Files" })
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live Grep" })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find Buffer" })
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Find Help Tags" })
+      vim.keymap.set('n', 'z=', builtin.spell_suggest, { desc = "Spelling Suggestions" })
+
+      require("telescope").load_extension("fzf")
+    end
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -38,6 +49,9 @@ return {
   {
     "vim-airline/vim-airline",
     lazy = false,
+    init = function ()
+      vim.g.airline_powerline_fonts = 1
+    end
   },
   {
     "vim-airline/vim-airline-themes",
@@ -65,8 +79,31 @@ return {
   },
 
   -- Git related plugins
-  { "tpope/vim-fugitive" },
-  { "lewis6991/gitsigns.nvim" },
+  {
+    "tpope/vim-fugitive",
+    keys = {
+      {
+        "<leader>gs",
+        "<cmd>Git<cr>",
+        desc = "Git Fugitive Window",
+      },
+    },
+    cmd = {
+      "G",
+      "Git",
+      "Gedit",
+      "Gdiffsplit",
+      "Gvdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "Glgrep",
+      "GMove",
+      "GDelete",
+      "GBrowse"
+    }
+  },
+  { "lewis6991/gitsigns.nvim", opts = {}},
 
   -- pretty diagnostics
   {
@@ -138,16 +175,21 @@ return {
 
   -- PlantUML Syntax is not supported by Tree Sitter
   { "aklt/plantuml-syntax" },
-  { "tyru/open-browser.vim" },
+  { "tyru/open-browser.vim", lazy = true },
   {
     "weirongxu/plantuml-previewer.vim",
     dependencies = {
       "aklt/plantuml-syntax",
       "tyru/open-browser.vim",
     },
+    ft = "plantuml",
   },
   -- Add comment highlighting
-  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
+  },
   -- // TODO: Foo
 
   {
