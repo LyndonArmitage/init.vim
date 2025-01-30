@@ -8,6 +8,8 @@
 
 local cmp = require('cmp')
 
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
 cmp.setup({
   sources = {
     {name = 'nvim_lsp'},
@@ -17,7 +19,28 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end,
   },
-  mapping = cmp.mapping.preset.insert({}),
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+  })
+})
+
+-- setup dap
+require("cmp").setup({
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end
+})
+
+require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
 })
 
 -- Reserve a space in the gutter
@@ -158,15 +181,3 @@ require'lspconfig'.terraformls.setup{}
 -- Kotlin
 -- Installed with pamac
 require'lspconfig'.kotlin_language_server.setup{}
-
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-  })
-})

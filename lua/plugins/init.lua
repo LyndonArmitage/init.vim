@@ -68,25 +68,6 @@ return {
   { "tpope/vim-fugitive" },
   { "lewis6991/gitsigns.nvim" },
 
-
-  -- Snippets for programming
-  { "rafamadriz/friendly-snippets" },
-
-  -- Debugging support
-  { "mfussenegger/nvim-dap" },
-  {
-    "mfussenegger/nvim-dap-python",
-    dependencies = {
-      "mfussenegger/nvim-dap"
-    },
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    dependencies = {
-      "mfussenegger/nvim-dap"
-    },
-  },
-
   -- pretty diagnostics
   {
     "folke/trouble.nvim",
