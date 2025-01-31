@@ -15,8 +15,11 @@ return {
 --        lsp_format = "fallback",
 --      },
       formatters_by_ft = {
-        python = { "isort", "black" },
-        terraform = { "terraform_fmt" },
+        ["python"] = { "isort", "black" },
+        ["terraform"] = { "terraform_fmt" },
+        ["terraform-vars"] = { "terraform_fmt" },
+        ["go"] = { "gofmt" },
+        ["rust"] = { "rustfmt", lsp_format = "fallback" },
       },
     },
     lazy = true,
