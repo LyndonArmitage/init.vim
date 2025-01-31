@@ -5,6 +5,41 @@ return {
   { "L3MON4D3/LuaSnip" },
   { "rafamadriz/friendly-snippets" },
 
+  -- Autoformatter on save
+  {
+    "stevearc/conform.nvim",
+    opts = {
+--      format_on_save = {
+--        -- These options will be passed to conform.format()
+--        timeout_ms = 1500,
+--        lsp_format = "fallback",
+--      },
+      formatters_by_ft = {
+        python = { "isort", "black" },
+        terraform = { "terraform_fmt" },
+      },
+    },
+    lazy = true,
+    cmd = { "ConformInfo" },
+    keys = {
+      -- Reformat buffer
+      {
+        "<F3>",
+        function()
+          require("conform").format({ timeout_ms = 3000 })
+        end,
+        desc = "Reformat Buffer",
+      },
+      {
+        "<leader>f",
+        function()
+          require("conform").format({ timeout_ms = 3000 })
+        end,
+        desc = "Reformat Buffer",
+      },
+    },
+  },
+
   -- LSP For Scala
   {
     "scalameta/nvim-metals",
@@ -55,7 +90,7 @@ return {
     },
     main = "dap-python",
     ft = "python",
-    config = function ()
+    config = function()
       require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
     end
   },

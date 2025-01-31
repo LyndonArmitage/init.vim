@@ -12,7 +12,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
   sources = {
-    {name = 'nvim_lsp'},
+    { name = 'nvim_lsp' },
   },
   snippet = {
     expand = function(args)
@@ -50,11 +50,11 @@ vim.opt.signcolumn = 'yes'
 -- Add borders to floating windows
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover,
-  {border = 'rounded'}
+  { border = 'rounded' }
 )
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help,
-  {border = 'rounded'}
+  { border = 'rounded' }
 )
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
@@ -70,7 +70,6 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
-
     local function keymapOpts(desc)
       return {
         buffer = bufnr,
@@ -90,9 +89,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "<F18>", vim.lsp.buf.rename, keymapOpts("Rename"))
     vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename, keymapOpts("Rename"))
 
+    -- Formatting handled by conform.nvim now
     -- Reformat buffer
-    vim.keymap.set("n", "<F3>", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
-    vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
+    -- vim.keymap.set("n", "<F3>", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
+    -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
 
     -- Go to Definition
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, keymapOpts("Go to Definition"))
@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- list symbols in the document: Ctrl Shift n
     vim.keymap.set("n", "<C-N>", require("telescope.builtin").lsp_document_symbols,
       keymapOpts("List all symbols in document"))
-    end,
+  end,
 })
 
 -- Markdown
@@ -176,8 +176,8 @@ require 'lspconfig'.html.setup {}
 -- Is in AUR:
 -- pamac install terraform-ls-bin
 -- Might also want terraform itself installed
-require'lspconfig'.terraformls.setup{}
+require 'lspconfig'.terraformls.setup {}
 
 -- Kotlin
 -- Installed with pamac
-require'lspconfig'.kotlin_language_server.setup{}
+require 'lspconfig'.kotlin_language_server.setup {}
