@@ -1,7 +1,18 @@
 return {
   { "neovim/nvim-lspconfig" },
-  { "hrsh7th/nvim-cmp" },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip"
+    },
+  },
   { "hrsh7th/cmp-nvim-lsp" },
+  {
+    "saadparwaiz1/cmp_luasnip",
+    dependencies = {
+      "L3MON4D3/LuaSnip"
+    }
+  },
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
@@ -9,8 +20,6 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
       local ls = require('luasnip')
-
-      require("luasnip.loaders.from_vscode").lazy_load()
 
       vim.keymap.set({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
       vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
@@ -29,11 +38,15 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
---      format_on_save = {
---        -- These options will be passed to conform.format()
---        timeout_ms = 1500,
---        lsp_format = "fallback",
---      },
+      --      format_on_save = {
+      --        -- These options will be passed to conform.format()
+      --        timeout_ms = 1500,
+      --        lsp_format = "fallback",
+      --      },
+      default_format_opts = {
+        timeout_ms = 1500,
+        lsp_format = "fallback",
+      },
       formatters_by_ft = {
         ["python"] = { "isort", "black" },
         ["terraform"] = { "terraform_fmt" },
@@ -43,7 +56,7 @@ return {
       },
     },
     lazy = true,
---    event = { "BufWritePre" }, -- uncomment when enabling format on save
+    --    event = { "BufWritePre" }, -- uncomment when enabling format on save
     cmd = { "ConformInfo" },
     keys = {
       -- Reformat buffer

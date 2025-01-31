@@ -13,6 +13,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
+    { name = "luasnip" },
   },
   snippet = {
     expand = function(args)
@@ -26,18 +27,14 @@ cmp.setup({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
-  })
-})
-
--- setup dap
-require("cmp").setup({
+  }),
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
         or require("cmp_dap").is_dap_buffer()
   end
 })
 
-require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
   sources = {
     { name = "dap" },
   },
