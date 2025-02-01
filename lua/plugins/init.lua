@@ -279,6 +279,14 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+    dependencies = {
+      {
+        "echasnovski/mini.icons",
+        version = false,
+        opts = {},
+      },
+      { "nvim-tree/nvim-web-devicons" },
+    },
     keys = {
       {
         "<leader>?",

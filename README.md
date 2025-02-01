@@ -16,8 +16,6 @@ These were rewritten from Vimscript to Lua at the end of 2023.
   in the config for it
 - A [Nerd Font](https://www.nerdfonts.com/) isn't strictly needed but is nice
   to have
-- [Obsidian](https://obsidian.md/) is needed for the
-  [obsidian plugin](https://github.com/epwalsh/obsidian.nvim) to work
 
 ## Plugin Management
 
