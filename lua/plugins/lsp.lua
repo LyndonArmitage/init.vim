@@ -121,7 +121,149 @@ return {
   },
 
   -- Debugging support
-  { "mfussenegger/nvim-dap" },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "theHamsta/nvim-dap-virtual-text",
+      "stevearc/overseer.nvim"
+    },
+    keys = {
+      -- DAP keybinds based on: https://github.com/scalameta/nvim-metals/discussions/39
+      {
+        "<leader>dc",
+        function()
+          require("dap").continue()
+        end,
+        mode = "n",
+        desc = "Continue debugging"
+      },
+      {
+        "<leader>dr",
+        function()
+          require("dap").repl.toggle()
+        end,
+        mode = "n",
+        desc = "Toggle Debug REPL"
+      },
+      {
+        "<leader>dK",
+        function()
+          require("dap.ui.widgets").hover()
+        end,
+        mode = "n",
+        desc = "Show Debug hover widgets"
+      },
+      {
+        "<leader>dt",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        mode = "n",
+        desc = "Toggle Breakpoint"
+      },
+      {
+        "<leader>dT",
+        function()
+          require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+          desc = "Toggle Breakpoint Condition"
+      },
+      {
+        "<leader>dso",
+        function()
+          require("dap").step_over()
+        end,
+        mode = "n",
+        desc = "Step Over"
+      },
+      {
+        "<leader>dsi",
+        function()
+          require("dap").step_into()
+        end,
+        mode = "n",
+        desc = "Step Into"
+      },
+      {
+        "<leader>dl",
+        function()
+          require("dap").run_last()
+        end,
+        mode = "n",
+        desc = "Run Last Debug Run"
+      },
+      {
+        "<leader>dq",
+        function()
+          require("dap").terminate()
+        end,
+        mode = "n",
+        desc = "Terminate Debug Run"
+      },
+    },
+    config = function()
+      local dap = require("dap")
+
+      require("overseer").enable_dap()
+
+      dap.configurations.scala = {
+        {
+          type = "scala",
+          request = "launch",
+          name = "Run or Test Target",
+          metals = {
+            runType = "runOrTestFile",
+          },
+        },
+        {
+          type = "scala",
+          request = "launch",
+          name = "Test Target",
+          metals = {
+            runType = "testTarget",
+          },
+        },
+      }
+
+      -- dap.configurations.c = {
+      --   {
+      --     name = "Launch",
+      --     type = "gdb",
+      --     request = "launch",
+      --     program = function()
+      --       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      --     end,
+      --     cwd = "${workspaceFolder}",
+      --   },
+      -- }
+
+      dap.adapters.codelldb = {
+        type = 'server',
+        port = "1300",
+        executable = {
+          command = '/usr/bin/codelldb',
+          args = {"--port", "1300"},
+          -- On windows you may have to uncomment this:
+          -- detached = false,
+        }
+      }
+
+      dap.configurations.cpp = {
+        {
+          name = "Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+          end,
+          cwd = '${workspaceFolder}',
+          stopOnEntry = false,
+        },
+      }
+
+      dap.configurations.rust = dap.configurations.cpp
+      dap.configurations.c = dap.configurations.cpp
+    end
+  },
   {
     "mfussenegger/nvim-dap-python",
     dependencies = {
@@ -135,16 +277,36 @@ return {
   },
   {
     "theHamsta/nvim-dap-virtual-text",
-    dependencies = {
-      "mfussenegger/nvim-dap"
-    },
+    lazy = true,
     opts = {}
   },
   -- DAP Support for cmp
   {
     "rcarriga/cmp-dap",
+    lazy = true,
     dependencies = {
       "mfussenegger/nvim-dap"
     }
   },
+
+  { -- This plugin
+    "Zeioth/makeit.nvim",
+    lazy = true,
+    cmd = {"MakeitOpen", "MakeitToggleResults", "MakeitRedo"},
+    dependencies = { "stevearc/overseer.nvim" },
+    opts = {},
+  },
+  {
+    "stevearc/overseer.nvim",
+    opts = {},
+    lazy = true,
+    cmd = {
+      "MakeitOpen",
+      "MakeitToggleResults",
+      "MakeitRedo",
+      "OverseerRun",
+      "OverseerToggle"
+    },
+  },
+
 }
