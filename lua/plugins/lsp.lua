@@ -55,6 +55,8 @@ return {
         ["terraform-vars"] = { "terraform_fmt" },
         ["go"] = { "gofmt" },
         ["rust"] = { "rustfmt", lsp_format = "fallback" },
+        -- https://github.com/mvdan/sh
+        ["bash"] = { "shfmt", lsp_format = "fallback" },
       },
     },
     lazy = true,
