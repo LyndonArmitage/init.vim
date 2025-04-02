@@ -7,7 +7,7 @@ These were rewritten from Vimscript to Lua at the end of 2023.
 
 ## Requirements
 
-- NeoVim 0.9+.
+- NeoVim 0.11+.
 - `treesitter` is needed for the various syntax highlighting
 - `git` is needed
 - `pass` is needed for getting credentials for the OpenAI plugin
