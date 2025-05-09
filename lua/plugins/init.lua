@@ -298,4 +298,9 @@ return {
     },
   },
 
+  {
+    "ccraciun/vim-dreammaker",
+    ft = {"dm", "dreammaker"}
+  }
+
 }

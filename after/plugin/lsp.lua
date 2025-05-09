@@ -190,3 +190,18 @@ require 'lspconfig'.terraformls.setup {}
 -- Kotlin
 -- Installed with pamac
 require 'lspconfig'.kotlin_language_server.setup {}
+
+-- DM/BYOND
+-- Requires dm-langserver
+-- https://github.com/SpaceManiac/SpacemanDMM
+
+require 'lspconfig.configs'.dm_langserver = {
+  default_config = {
+    cmd = { "/home/lyndon/repos/byond/SpacemanDMM/target/release/dm-langserver" },
+    filetypes = { "dm", "dreammaker" },
+    root_dir = require("lspconfig").util.root_pattern(".git", "*.dme"),
+    single_file_support = true,
+  }
+}
+
+require 'lspconfig'.dm_langserver.setup({})
