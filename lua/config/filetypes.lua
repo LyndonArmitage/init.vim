@@ -107,3 +107,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.relativenumber = false
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "dm", "dreammaker" },
+  callback = function()
+    vim.bo.expandtab = false  -- Use tabs, not spaces
+    vim.bo.tabstop = 4        -- Visual width of tab characters
+    vim.bo.shiftwidth = 4     -- Indent size when using >> or <<
+    vim.bo.softtabstop = 4    -- Editing-level tab width
+  end,
+})
