@@ -220,6 +220,18 @@ return {
         {
           type = "scala",
           request = "launch",
+          name = "Run or Test Target With arguments",
+          metals = {
+            runType = "runOrTestFile",
+            args = function()
+              local input = vim.fn.input("Program arguments (space-separated): ")
+              return vim.fn.split(input, " ", true)
+            end
+          },
+        },
+        {
+          type = "scala",
+          request = "launch",
           name = "Test Target",
           metals = {
             runType = "testTarget",
