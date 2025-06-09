@@ -21,6 +21,10 @@ return {
               enabled = true,
               font = "18",
             },
+            neovide = {
+              enabled = true,
+              scale = 1.8,
+            },
           },
         }
         require("zen-mode").toggle()
@@ -48,7 +52,11 @@ return {
             alacritty = {
               enabled = true,
               font = "20",
-            }
+            },
+            neovide = {
+              enabled = true,
+              scale = 2.0,
+            },
           },
         }
         require("zen-mode").toggle()
