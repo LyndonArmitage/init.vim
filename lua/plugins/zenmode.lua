@@ -13,6 +13,7 @@ return {
             options = {}
           },
           plugins = {
+            twilight = { enabled = false },
             tmux = {
               enabled = true,
             },
@@ -40,6 +41,7 @@ return {
             }
           },
           plugins = {
+            twilight = { enabled = true },
             tmux = {
               enabled = true,
             },
@@ -48,12 +50,6 @@ return {
               font = "20",
             }
           },
-          on_open = function()
-            vim.cmd('Limelight')
-          end,
-          on_close = function()
-            vim.cmd('Limelight!')
-          end,
         }
         require("zen-mode").toggle()
       end,

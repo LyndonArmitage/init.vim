@@ -4,14 +4,14 @@ end
 
 local function enable_writing_mode()
   vim.cmd('Goyo 120')
-  vim.cmd('Limelight')
+  vim.cmd('TwilightEnable')
   vim.cmd('PencilSoft')
   vim.g.writing_mode = true
 end
 
 local function disable_writing_mode()
   vim.cmd('Goyo!')
-  vim.cmd('Limelight!')
+  vim.cmd('TwilightDisable')
   vim.cmd('PencilOff')
   vim.g.writing_mode = false
 end

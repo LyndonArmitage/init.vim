@@ -5,10 +5,6 @@ return {
     cmd = "Goyo",
   },
   {
-    'junegunn/limelight.vim',
-    cmd = "Limelight",
-  },
-  {
     'preservim/vim-pencil',
     cmd = {
       "Pencil",
