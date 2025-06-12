@@ -74,6 +74,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         desc = "LSP " .. desc,
       }
     end
+
+    require("nvim-lightbulb").setup({
+      autocmd = { enabled = true }
+    })
     -- It's time to try out some keybinds, I will follow the defaults and maybe
     -- add my own similar to IntelliJ
 
