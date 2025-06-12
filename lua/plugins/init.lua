@@ -300,7 +300,10 @@ return {
 
   {
     "ccraciun/vim-dreammaker",
-    ft = {"dm", "dreammaker"}
-  }
+    ft = { "dm", "dreammaker" }
+  },
+
+  -- Adds surrounding motions
+  { 'echasnovski/mini.surround', version = false }
 
 }

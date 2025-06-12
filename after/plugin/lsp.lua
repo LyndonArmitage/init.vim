@@ -215,3 +215,6 @@ require 'lspconfig.configs'.dm_langserver = {
 }
 
 require 'lspconfig'.dm_langserver.setup({})
+
+-- Setup surround behaviour
+require('mini.surround').setup()
