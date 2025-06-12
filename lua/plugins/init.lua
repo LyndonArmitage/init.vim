@@ -11,7 +11,14 @@ return {
   },
 
   -- Nice file editor
-  { "stevearc/oil.nvim",           opts = {} },
+  {
+    "stevearc/oil.nvim",
+    opts = {
+      view_options = {
+        show_hidden = true
+      }
+    }
+  },
 
   -- Useful commands for plugins
   {
@@ -114,7 +121,7 @@ return {
     }
   },
   -- Git signs are nice to have to show changes at a glance
-  { "lewis6991/gitsigns.nvim", opts = {} },
+  { "lewis6991/gitsigns.nvim",     opts = {} },
 
   -- pretty diagnostics
   {
