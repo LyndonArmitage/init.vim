@@ -91,6 +91,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set("n", "<F3>", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
     -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
 
+    -- Code action
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, keymapOpts("Code Action"))
+    vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, keymapOpts("Code Action"))
+    vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, keymapOpts("Code Action"))
+    vim.keymap.set("v", "<F4>", vim.lsp.buf.code_action, keymapOpts("Code Action"))
+
     -- Go to Definition
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, keymapOpts("Go to Definition"))
     -- Go to Declaration (not always supported)
@@ -163,13 +169,13 @@ require 'lspconfig'.rust_analyzer.setup {}
 -- Temp workaround for rust analyzer issue
 -- https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
-    local default_diagnostic_handler = vim.lsp.handlers[method]
-    vim.lsp.handlers[method] = function(err, result, context, config)
-        if err ~= nil and err.code == -32802 then
-            return
-        end
-        return default_diagnostic_handler(err, result, context, config)
+  local default_diagnostic_handler = vim.lsp.handlers[method]
+  vim.lsp.handlers[method] = function(err, result, context, config)
+    if err ~= nil and err.code == -32802 then
+      return
     end
+    return default_diagnostic_handler(err, result, context, config)
+  end
 end
 
 -- JavaScript/TypeScript
