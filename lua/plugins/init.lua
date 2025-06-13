@@ -55,16 +55,11 @@ return {
 
   -- Status Line
   {
-    "vim-airline/vim-airline",
-    lazy = false,
-    init = function()
-      vim.g.airline_powerline_fonts = 1
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require("lualine").setup({})
     end
-  },
-  {
-    "vim-airline/vim-airline-themes",
-    lazy = false,
-    dependencies = { "vim-airline/vim-airline" },
   },
 
 
