@@ -29,7 +29,7 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
   }),
   enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+    return vim.api.nvim_get_option_value("buftype", {}) ~= "prompt"
         or require("cmp_dap").is_dap_buffer()
   end
 })
@@ -45,14 +45,12 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
 vim.opt.signcolumn = 'yes'
 
 -- Add borders to floating windows
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  { border = 'rounded' }
-)
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  { border = 'rounded' }
-)
+vim.lsp.handlers['textDocument/hover'] =
+  vim.lsp.buf.hover({ border = 'rounded' })
+
+vim.lsp.handlers['textDocument/signatureHelp'] =
+  vim.lsp.buf.signature_help({ border = 'rounded' })
+
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
@@ -118,8 +116,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Diagnostics stuff
     vim.keymap.set("n", "gl", vim.diagnostic.open_float, keymapOpts("Open Diagnostics"))
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, keymapOpts("Previous diagnostic"))
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, keymapOpts("Next diagnostic"))
+    vim.keymap.set("n", "[d", function () vim.diagnostic.jump({count = -1}) end, keymapOpts("Previous diagnostic"))
+    vim.keymap.set("n", "]d", function () vim.diagnostic.jump({count = 1}) end, keymapOpts("Next diagnostic"))
 
     -- list symbols in the document: Ctrl Shift n
     vim.keymap.set("n", "<C-N>", require("telescope.builtin").lsp_document_symbols,
