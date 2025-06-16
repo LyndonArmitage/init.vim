@@ -129,7 +129,8 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       "theHamsta/nvim-dap-virtual-text",
-      "stevearc/overseer.nvim"
+      "stevearc/overseer.nvim",
+      { "igorlfs/nvim-dap-view", opts = {} }
     },
     keys = {
       -- DAP keybinds based on: https://github.com/scalameta/nvim-metals/discussions/39
@@ -168,8 +169,9 @@ return {
       {
         "<leader>dT",
         function()
-          require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
-          desc = "Toggle Breakpoint Condition"
+          require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
+        end,
+        desc = "Toggle Breakpoint Condition"
       },
       {
         "<leader>dso",
@@ -257,7 +259,7 @@ return {
         port = "1300",
         executable = {
           command = '/usr/bin/codelldb',
-          args = {"--port", "1300"},
+          args = { "--port", "1300" },
           -- On windows you may have to uncomment this:
           -- detached = false,
         }
@@ -308,7 +310,7 @@ return {
   { -- This plugin
     "Zeioth/makeit.nvim",
     lazy = true,
-    cmd = {"MakeitOpen", "MakeitToggleResults", "MakeitRedo"},
+    cmd = { "MakeitOpen", "MakeitToggleResults", "MakeitRedo" },
     dependencies = { "stevearc/overseer.nvim" },
     opts = {},
   },
