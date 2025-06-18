@@ -7,6 +7,7 @@ return {
     build = ":TSUpdate",
     config = function()
       require 'nvim-treesitter.configs'.setup {
+        modules = {},
 
         ensure_installed = {
           "bash",
@@ -21,7 +22,13 @@ return {
           "lua",
           "vim",
           "vimdoc",
-          "query"
+          "query",
+          "gitcommit",
+          "gitignore",
+          "yaml",
+          "xml",
+          "toml",
+          "sql"
         },
 
         ignore_install = {},
