@@ -64,10 +64,10 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 -- This is where you enable features that only work
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(event)
+  callback = function()
     local function keymapOpts(desc)
       return {
-        buffer = bufnr,
+        --buffer = bufnr,
         remap = true,
         desc = "LSP " .. desc,
       }
