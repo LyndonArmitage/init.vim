@@ -1,10 +1,6 @@
 return {
   -- Writing Plugins
   {
-    'junegunn/goyo.vim',
-    cmd = "Goyo",
-  },
-  {
     'preservim/vim-pencil',
     cmd = {
       "Pencil",
