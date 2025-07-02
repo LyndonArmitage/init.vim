@@ -122,7 +122,7 @@ return {
   },
 
   -- Basic info for LSP messages etc
-    {
+  {
     "j-hui/fidget.nvim",
     opts = {},
   },
@@ -329,5 +329,14 @@ return {
       "OverseerToggle"
     },
   },
+  {
+    "rachartier/tiny-code-action.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+    event = "LspAttach",
+    opts = {},
+  }
 
 }

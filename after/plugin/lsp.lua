@@ -94,7 +94,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, keymapOpts("Reformat Buffer"))
 
     -- Code action
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, keymapOpts("Code Action"))
+    vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+      require("tiny-code-action").code_action({})
+    end, { noremap = true, silent = true, desc = "LSP Code Action" })
     vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, keymapOpts("Code Action"))
     vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, keymapOpts("Code Action"))
     vim.keymap.set("v", "<F4>", vim.lsp.buf.code_action, keymapOpts("Code Action"))
