@@ -240,6 +240,15 @@ return {
     },
   },
 
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {}
+  },
+
   -- Heritage simply makes sure any parent directories exist when writing a new
   -- file.
   { "jessarcher/vim-heritage" },
