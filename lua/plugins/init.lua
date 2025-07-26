@@ -95,7 +95,18 @@ return {
     }
   },
   -- Git signs are nice to have to show changes at a glance
-  { "lewis6991/gitsigns.nvim",     opts = {} },
+  {
+    "lewis6991/gitsigns.nvim",
+    lazy = false,
+    opts = {},
+    keys = {
+      {
+        "<leader>gd",
+        "<cmd>Gitsigns preview_hunk<cr>",
+        desc = "Preview Hunk"
+      },
+    }
+  },
 
   -- pretty diagnostics
   {
