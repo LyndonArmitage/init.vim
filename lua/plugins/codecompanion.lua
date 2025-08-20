@@ -8,15 +8,15 @@ return {
     strategies = {
       chat = {
         adapter = "openai",
-        model = "gpt-4.1",
+        model = "gpt-5",
       },
       inline = {
         adapter = "openai",
-        model = "gpt-4.1",
+        model = "gpt-5",
       },
       cmd = {
         adapter = "openai",
-        model = "gpt-4.1",
+        model = "gpt-5",
       },
     },
     adapters = {
