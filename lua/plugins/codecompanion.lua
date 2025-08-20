@@ -7,16 +7,22 @@ return {
   opts = {
     strategies = {
       chat = {
-        adapter = "openai",
-        model = "gpt-5",
+        adapter = {
+          name = "openai",
+          model = "gpt-4.1",
+        }
       },
       inline = {
-        adapter = "openai",
-        model = "gpt-5",
+        adapter = {
+          name = "openai",
+          model = "gpt-4.1",
+        }
       },
       cmd = {
-        adapter = "openai",
-        model = "gpt-5",
+        adapter = {
+          name = "openai",
+          model = "gpt-4.1",
+        }
       },
     },
     adapters = {
@@ -31,3 +37,4 @@ return {
     },
   },
 }
+
