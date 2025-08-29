@@ -10,19 +10,22 @@ return {
       chat = {
         adapter = {
           name = "openai",
-          model = "gpt-4.1",
+          model = "gpt-5-mini",
+          stream = true,
         }
       },
       inline = {
         adapter = {
           name = "openai",
-          model = "gpt-4.1",
+          model = "gpt-5-mini",
+          stream = true,
         }
       },
       cmd = {
         adapter = {
           name = "openai",
-          model = "gpt-4.1",
+          model = "gpt-5-mini",
+          stream = true,
         }
       },
     },
@@ -31,6 +34,18 @@ return {
         openai = function()
           local config_dir = vim.fn.stdpath('config')
           return require("codecompanion.adapters").extend("openai", {
+            -- This schema code overrides the defaults that restrict streaming
+            -- This will only work if the organization associated with the API
+            -- key is verified (mine is)
+            schema = {
+              model = {
+                choices = {
+                  ["gpt-5-mini"] = {
+                    opts = { has_vision = true, can_reason = true, stream = true },
+                  },
+                },
+              },
+            },
             env = {
               api_key = "cmd:bash " .. config_dir .. "/get-openai-api.sh",
             },
