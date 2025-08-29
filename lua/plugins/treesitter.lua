@@ -28,7 +28,8 @@ return {
           "yaml",
           "xml",
           "toml",
-          "sql"
+          "sql",
+          "python"
         },
 
         ignore_install = {},
