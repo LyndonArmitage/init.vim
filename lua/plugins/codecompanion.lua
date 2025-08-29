@@ -3,7 +3,12 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "ravitemer/mcphub.nvim"
+    -- Below are some plugins
+    "ravitemer/mcphub.nvim",
+    "ravitemer/codecompanion-history.nvim",
+    "j-hui/fidget.nvim",
+    -- Some plugins depend on other plugins
+    "nvim-telescope/telescope.nvim",
   },
   opts = {
     strategies = {
@@ -68,7 +73,17 @@ return {
           -- MCP Prompts
           make_slash_commands = true,           -- Add MCP prompts as /slash commands
         }
-      }
+      },
+      history = {
+        enabled = true,
+        opts = {
+          expiration_days = 60,
+          picker = "telescope"
+        }
+      },
     }
   },
+  init = function ()
+    require("plugins.codecompanion.fidget-spinner"):init()
+  end
 }
