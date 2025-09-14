@@ -52,6 +52,7 @@ return {
       },
       formatters_by_ft = {
         ["python"] = { "isort", "black" },
+        ["toml"] = { "tombi" },
         ["terraform"] = { "terraform_fmt" },
         ["terraform-vars"] = { "terraform_fmt" },
         ["go"] = { "gofmt" },

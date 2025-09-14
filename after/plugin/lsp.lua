@@ -216,5 +216,10 @@ require 'lspconfig.configs'.dm_langserver = {
 
 require 'lspconfig'.dm_langserver.setup({})
 
+-- Add tombi for toml files
+-- sudo pacman -S tombi
+-- Or: uv tool install tombi
+vim.lsp.enable('tombi')
+
 -- Setup surround behaviour
 require('mini.surround').setup()
