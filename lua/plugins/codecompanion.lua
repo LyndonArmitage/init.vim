@@ -6,6 +6,7 @@ return {
     -- Below are some plugins
     "ravitemer/mcphub.nvim",
     "ravitemer/codecompanion-history.nvim",
+    "lalitmee/codecompanion-spinners.nvim",
     "j-hui/fidget.nvim",
     -- Some plugins depend on other plugins
     "nvim-telescope/telescope.nvim",
@@ -81,9 +82,11 @@ return {
           picker = "telescope"
         }
       },
+      spinner = {
+        opts = {
+          style = "fidget",
+        },
+      }
     }
-  },
-  init = function ()
-    require("plugins.codecompanion.fidget-spinner"):init()
-  end
+  }
 }
