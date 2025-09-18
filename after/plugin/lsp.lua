@@ -228,5 +228,9 @@ vim.lsp.enable('dm_langserver')
 -- Or: uv tool install tombi
 vim.lsp.enable('tombi')
 
+-- Add pyright for pyton
+-- sudo pacman -S pyright
+vim.lsp.enable('pyright')
+
 -- Setup surround behaviour
 require('mini.surround').setup()
