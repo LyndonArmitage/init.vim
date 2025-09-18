@@ -163,7 +163,7 @@ vim.lsp.enable('gopls')
 -- pip install -U jedi-language-server
 -- or pacman:
 -- sudo pacman -S jedi-language-server
-vim.lsp.enable('jedi_language_server')
+-- vim.lsp.enable('jedi_language_server')
 
 -- Lua
 -- Installed with package
@@ -230,7 +230,10 @@ vim.lsp.enable('tombi')
 
 -- Add pyright for pyton
 -- sudo pacman -S pyright
-vim.lsp.enable('pyright')
+-- pamac install basedpyright-bin
+-- or
+-- npm install basedpyright
+vim.lsp.enable('basedpyright')
 
 -- Setup surround behaviour
 require('mini.surround').setup()
