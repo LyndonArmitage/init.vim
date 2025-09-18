@@ -46,20 +46,23 @@ vim.opt.signcolumn = 'yes'
 
 -- Add borders to floating windows
 vim.lsp.handlers['textDocument/hover'] =
-  vim.lsp.buf.hover({ border = 'rounded' })
+    vim.lsp.buf.hover({ border = 'rounded' })
 
 vim.lsp.handlers['textDocument/signatureHelp'] =
-  vim.lsp.buf.signature_help({ border = 'rounded' })
+    vim.lsp.buf.signature_help({ border = 'rounded' })
 
 
--- Add cmp_nvim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+-- Add cmp_nvim_lsp capabilities to every LSP client
+-- This must run before configuring individual servers
+local cmp_capabilities = vim.tbl_deep_extend(
   'force',
-  lspconfig_defaults.capabilities,
+  vim.lsp.protocol.make_client_capabilities(),
   require('cmp_nvim_lsp').default_capabilities()
 )
+
+vim.lsp.config('*', {
+  capabilities = cmp_capabilities,
+})
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -118,8 +121,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Diagnostics stuff
     vim.keymap.set("n", "gl", vim.diagnostic.open_float, keymapOpts("Open Diagnostics"))
-    vim.keymap.set("n", "[d", function () vim.diagnostic.jump({count = -1}) end, keymapOpts("Previous diagnostic"))
-    vim.keymap.set("n", "]d", function () vim.diagnostic.jump({count = 1}) end, keymapOpts("Next diagnostic"))
+    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, keymapOpts("Previous diagnostic"))
+    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, keymapOpts("Next diagnostic"))
 
     -- list symbols in the document: Ctrl Shift n
     vim.keymap.set("n", "<C-N>", require("telescope.builtin").lsp_document_symbols,
@@ -130,45 +133,45 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- Markdown
 -- Installed via package manager:
 -- sudo pacman -S marksman
-require 'lspconfig'.marksman.setup {}
+vim.lsp.enable('marksman')
 
 -- Dockerfile
 -- npm install -g dockerfile-language-server-nodejs
-require 'lspconfig'.dockerls.setup {}
+vim.lsp.enable('dockerls')
 
 -- Bash
 -- npm i -g bash-language-server
-require 'lspconfig'.bashls.setup {}
+vim.lsp.enable('bashls')
 
 -- C
 -- Installed with package
-require 'lspconfig'.ccls.setup {}
+vim.lsp.enable('ccls')
 
 -- Zig
 -- Installed with package
-require 'lspconfig'.zls.setup {}
+vim.lsp.enable('zls')
 
 -- Go
 -- Installed with command:
 -- sudo pacman -S gopls
 -- NOT:
 -- go install golang.org/x/tools/gopls@latest
-require 'lspconfig'.gopls.setup {}
+vim.lsp.enable('gopls')
 
 -- Python
 -- Installed with pip:
 -- pip install -U jedi-language-server
 -- or pacman:
 -- sudo pacman -S jedi-language-server
-require 'lspconfig'.jedi_language_server.setup {}
+vim.lsp.enable('jedi_language_server')
 
 -- Lua
 -- Installed with package
-require 'lspconfig'.lua_ls.setup {}
+vim.lsp.enable('lua_ls')
 
 -- Rust
 -- Installed with rustup
-require 'lspconfig'.rust_analyzer.setup {}
+vim.lsp.enable('rust_analyzer')
 
 -- Temp workaround for rust analyzer issue
 -- https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525
@@ -185,36 +188,40 @@ end
 -- JavaScript/TypeScript
 -- Installed with npm:
 -- npm i -g vscode-langservers-extracted
-require 'lspconfig'.eslint.setup {}
+vim.lsp.enable('eslint')
 -- html
 -- Installed the same way
-require 'lspconfig'.html.setup {}
+vim.lsp.enable('html')
 
 -- Terraform completion
 -- Requires terraform-ls
 -- Is in AUR:
 -- pamac install terraform-ls-bin
 -- Might also want terraform itself installed
-require 'lspconfig'.terraformls.setup {}
+vim.lsp.enable('terraformls')
 
 -- Kotlin
 -- Installed with pamac
-require 'lspconfig'.kotlin_language_server.setup {}
+vim.lsp.enable('kotlin_language_server')
 
 -- DM/BYOND
 -- Requires dm-langserver
 -- https://github.com/SpaceManiac/SpacemanDMM
+vim.lsp.config('dm_langserver', {
+  cmd = { "/home/lyndon/repos/byond/SpacemanDMM/target/release/dm-langserver" },
+  filetypes = { "dm", "dreammaker" },
+  root_dir = function(bufnr, on_dir)
+    local root = vim.fs.root(bufnr, {
+      '.git',
+      function(name)
+        return name:match('%.dme$') ~= nil
+      end,
+    })
+    on_dir(root)
+  end,
+})
 
-require 'lspconfig.configs'.dm_langserver = {
-  default_config = {
-    cmd = { "/home/lyndon/repos/byond/SpacemanDMM/target/release/dm-langserver" },
-    filetypes = { "dm", "dreammaker" },
-    root_dir = require("lspconfig").util.root_pattern(".git", "*.dme"),
-    single_file_support = true,
-  }
-}
-
-require 'lspconfig'.dm_langserver.setup({})
+vim.lsp.enable('dm_langserver')
 
 -- Add tombi for toml files
 -- sudo pacman -S tombi
