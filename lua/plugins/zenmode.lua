@@ -26,6 +26,13 @@ return {
               scale = 1.8,
             },
           },
+          on_open = function()
+            -- enter soft pencil mode for focused writing
+            vim.cmd("PencilSoft")
+          end,
+          on_close = function()
+            vim.cmd("PencilOff")
+          end,
         }
         require("zen-mode").toggle()
       end,
@@ -58,6 +65,12 @@ return {
               scale = 2.0,
             },
           },
+          on_open = function()
+            vim.cmd("PencilSoft")
+          end,
+          on_close = function()
+            vim.cmd("PencilOff")
+          end,
         }
         require("zen-mode").toggle()
       end,
