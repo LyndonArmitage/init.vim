@@ -193,12 +193,13 @@ vim.lsp.enable('eslint')
 -- Installed the same way
 vim.lsp.enable('html')
 
--- Terraform completion
--- Requires terraform-ls
+-- Terraform/OpenTofu completion
+-- Requires tofu-ls
 -- Is in AUR:
--- pamac install terraform-ls-bin
--- Might also want terraform itself installed
-vim.lsp.enable('terraformls')
+-- pamac install tofu-ls-bin
+-- Might also want OpenTofu itself installed
+-- This can be managed by tenv
+vim.lsp.enable('tofu_ls')
 
 -- Kotlin
 -- Installed with pamac
