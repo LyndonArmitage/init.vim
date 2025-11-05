@@ -286,18 +286,17 @@ return {
       dap.configurations.c = dap.configurations.cpp
     end
   },
-  -- Broken at the moment: Seems to do with a missing plugin directory
-  --  {
-  --    "mfussenegger/nvim-dap-python",
-  --    dependencies = {
-  --      "mfussenegger/nvim-dap"
-  --    },
-  --    main = "dap-python",
-  --    ft = "python",
-  --    config = function()
-  --      require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
-  --    end
-  --  },
+  {
+    "mfussenegger/nvim-dap-python",
+    dependencies = {
+      "mfussenegger/nvim-dap"
+    },
+    main = "dap-python",
+    ft = "python",
+    config = function()
+      require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+    end
+  },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = true,
