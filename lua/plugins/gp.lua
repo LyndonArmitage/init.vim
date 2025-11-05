@@ -6,7 +6,25 @@ return {
     -- Get Key from an invoked command
     local config_dir = vim.fn.stdpath('config')
     return {
-      openai_api_key = { "bash", config_dir .. "/get-openai-api.sh" }
+      openai_api_key = { "bash", config_dir .. "/get-openai-api.sh" },
+      agents = {
+        {
+          provider = "openai",
+          name = "gpt-5",
+          chat = true,
+          command = true,
+          model = { model = "gpt-5" },
+          system_prompt = require("gp.defaults").chat_system_prompt,
+        },
+        {
+          provider = "openai",
+          name = "gpt-5-mini",
+          chat = true,
+          command = true,
+          model = { model = "gpt-5-mini" },
+          system_prompt = require("gp.defaults").chat_system_prompt,
+        },
+      },
     }
   end,
   keys = {
