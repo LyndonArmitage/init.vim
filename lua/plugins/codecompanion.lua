@@ -49,6 +49,9 @@ return {
                   ["gpt-5-mini"] = {
                     opts = { has_vision = true, can_reason = true, stream = true },
                   },
+                  ["gpt-5.1"] = {
+                    opts = { has_vision = true, can_reason = true, stream = true },
+                  },
                 },
               },
             },

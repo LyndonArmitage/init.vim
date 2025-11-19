@@ -18,6 +18,14 @@ return {
         },
         {
           provider = "openai",
+          name = "gpt-5.1",
+          chat = true,
+          command = true,
+          model = { model = "gpt-5.1" },
+          system_prompt = require("gp.defaults").chat_system_prompt,
+        },
+        {
+          provider = "openai",
           name = "gpt-5-mini",
           chat = true,
           command = true,
