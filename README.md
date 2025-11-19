@@ -30,3 +30,11 @@ it had just been abandoned.
 
 At the end of January 2025, I decided to switch to
 [lazy.nvim](https://github.com/folke/lazy.nvim), as it is heavily supported.
+
+## Adding Spelling words
+
+You can manually add words in the editor using `zg`. This should add them to
+the `spell/en.utf-8.add` and recompile `spell/en.utf-8.add.spl`.
+
+You can also manually add words to the `spell/en.utf-8.add` file then manually
+compile it with: `:mkspell! ~/.config/nvim/spell/en.utf-8.add`
