@@ -235,6 +235,3 @@ vim.lsp.enable('tombi')
 -- or
 -- npm install basedpyright
 vim.lsp.enable('basedpyright')
-
--- Setup surround behaviour
-require('mini.surround').setup()

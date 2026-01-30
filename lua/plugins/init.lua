@@ -223,7 +223,38 @@ return {
     ft = { "dm", "dreammaker" }
   },
 
-  -- Adds surrounding motions
-  { 'echasnovski/mini.surround', version = false }
+  -- Adds surrounding motions with extended textobjects
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+
+  -- Auto insert matching pairs with Treesitter awareness
+  {
+    "windwp/nvim-autopairs",
+    event = { "InsertEnter", "CmdlineEnter" },
+    opts = {
+      check_ts = true,
+      ts_config = {
+        lua = { "string" },
+        javascript = { "template_string" },
+      },
+      disable_filetype = { "TelescopePrompt", "spectre_panel" },
+    },
+    config = function(_, opts)
+      local autopairs = require("nvim-autopairs")
+      autopairs.setup(opts)
+
+      local cmp_status, cmp = pcall(require, "cmp")
+      if cmp_status then
+        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      end
+    end,
+  }
 
 }
