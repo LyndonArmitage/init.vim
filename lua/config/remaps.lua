@@ -24,4 +24,4 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Location window p
 vim.keymap.set("n", "Q", "<NOP>")
 
 -- Set terminal binding for easier exiting
-vim.keymap.set("t", "<leader><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("t", "<leader><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
