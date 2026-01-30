@@ -174,7 +174,7 @@ return {
 
   -- PlantUML Syntax is not supported by Tree Sitter
   { "aklt/plantuml-syntax" },
-  { "tyru/open-browser.vim",  lazy = true },
+  { "tyru/open-browser.vim",       lazy = true },
   {
     "weirongxu/plantuml-previewer.vim",
     dependencies = {
@@ -255,6 +255,17 @@ return {
         cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
       end
     end,
+  },
+
+  -- Render markdown more nicely
+  -- Not 100% sure of this one as I sometimes like plain markdown
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+    ft = { "markdown", "codecompanion" },
   }
 
 }
