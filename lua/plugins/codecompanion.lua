@@ -13,6 +13,9 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   opts = {
+    opts = {
+      log_level = "TRACE",
+    },
     strategies = {
       chat = {
         adapter = {
@@ -41,6 +44,14 @@ return {
         openai = function()
           local config_dir = vim.fn.stdpath('config')
           return require("codecompanion.adapters").extend("openai", {
+            -- TLS/CIPHER FIXES: Forces stable OpenAI handshake
+            raw = {
+              "--tlsv1.3",                                                     -- TLS 1.3 only (fixes protocol version)
+              "--ciphers=TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256", -- OpenAI preferred (fixes bad record MAC)
+              "--retry=3",                                                     -- Handles intermittency
+              "--retry-all-errors",                                            -- Retry on TLS errors too
+              vim.env.CC_TETHER_SLOW == "1" and "--limit-rate=100K" or "",     -- Stabilizes slow tether (prevents packet corruption)
+            },
             -- This schema code overrides the defaults that restrict streaming
             -- This will only work if the organization associated with the API
             -- key is verified (mine is)
