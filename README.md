@@ -38,3 +38,14 @@ the `spell/en.utf-8.add` and recompile `spell/en.utf-8.add.spl`.
 
 You can also manually add words to the `spell/en.utf-8.add` file then manually
 compile it with: `:mkspell! ~/.config/nvim/spell/en.utf-8.add`
+
+## Patching issues with plugins
+
+I have added
+[lazy-local-patcher.nvim](https://github.com/polirritmico/lazy-local-patcher.nvim)
+to deal with plugin problems when the plugin developers aren't fast to fix
+issues. These normally stem from plugins interacting with eachother and going
+out of sync.
+
+For now the only patch is code the codecompanion.nvim and mcphub.nvim plugins
+issue: https://github.com/ravitemer/mcphub.nvim/issues/275
