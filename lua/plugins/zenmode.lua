@@ -27,11 +27,14 @@ return {
             },
           },
           on_open = function()
-            -- enter soft pencil mode for focused writing
-            vim.cmd("PencilSoft")
+            if vim.fn.exists(":PencilSoft") then
+              vim.cmd("PencilSoft")
+            end
           end,
           on_close = function()
-            vim.cmd("PencilOff")
+            if vim.fn.exists(":PencilOff") then
+              vim.cmd("PencilOff")
+            end
           end,
         }
         require("zen-mode").toggle()
@@ -66,10 +69,14 @@ return {
             },
           },
           on_open = function()
-            vim.cmd("PencilSoft")
+            if vim.fn.exists(":PencilSoft") then
+              vim.cmd("PencilSoft")
+            end
           end,
           on_close = function()
-            vim.cmd("PencilOff")
+            if vim.fn.exists(":PencilOff") then
+              vim.cmd("PencilOff")
+            end
           end,
         }
         require("zen-mode").toggle()
