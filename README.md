@@ -24,7 +24,7 @@ Plugin management is an annoying thing in vim as there are so many solutions!
 Before 2024 I used [Vundle](https://github.com/VundleVim/Vundle.vipm), and 
 switched to [vim-plug](https://github.com/junegunn/vim-plug) at some point.
 
-At the end of 2023 I switched to permenently using NeoVim and the plugin
+At the end of 2023 I switched to permanently using NeoVim and the plugin
 manager [packer.nvim](https://github.com/wbthomason/packer.nvim), even though
 it had just been abandoned.
 
@@ -44,7 +44,7 @@ compile it with: `:mkspell! ~/.config/nvim/spell/en.utf-8.add`
 I have added
 [lazy-local-patcher.nvim](https://github.com/polirritmico/lazy-local-patcher.nvim)
 to deal with plugin problems when the plugin developers aren't fast to fix
-issues. These normally stem from plugins interacting with eachother and going
+issues. These normally stem from plugins interacting with each other and going
 out of sync.
 
 For now the only patch is code the codecompanion.nvim and mcphub.nvim plugins
