@@ -47,5 +47,5 @@ to deal with plugin problems when the plugin developers aren't fast to fix
 issues. These normally stem from plugins interacting with each other and going
 out of sync.
 
-For now the only patch is code the codecompanion.nvim and mcphub.nvim plugins
-issue: https://github.com/ravitemer/mcphub.nvim/issues/275
+For now the only patch is code the `codecompanion.nvim` and `mcphub.nvim`
+plugins PR: https://github.com/ravitemer/mcphub.nvim/pull/279
