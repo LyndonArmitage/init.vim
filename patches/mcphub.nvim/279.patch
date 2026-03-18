@@ -330,7 +330,7 @@ index 2a15a55..75820e9 100644
      end
  
 -    local cc_variables = config.interactions.chat.variables
-+    local cc_editor_context = config.interactions.chat.editor_context
++    local cc_editor_context = config.config.interactions.shared.editor_context
  
 -    -- Remove existing MCP variables
 -    for key, value in pairs(cc_variables) do
