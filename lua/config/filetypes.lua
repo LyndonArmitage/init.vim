@@ -117,3 +117,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.softtabstop = 4    -- Editing-level tab width
   end,
 })
+
+local tfvars_group = vim.api.nvim_create_augroup("tfvars", { clear = true })
+
+-- fix highlighting in *.tfvars
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  group = tfvars_group,
+  pattern = { '*.tfvars' },
+  command = 'set ft=terraform',
+})
