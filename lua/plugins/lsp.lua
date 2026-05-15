@@ -209,6 +209,22 @@ return {
         mode = "n",
         desc = "Terminate Debug Run"
       },
+      {
+        "<leader>da",
+        function()
+          require("dap").set_exception_breakpoints({ "raised" })
+        end,
+        mode = "n",
+        desc = "Break on raised exceptions"
+      },
+      {
+        "<leader>dA",
+        function()
+          require("dap").set_exception_breakpoints({ "raised", "unhandled" })
+        end,
+        mode = "n",
+        desc = "Break on all exceptions"
+      },
     },
     config = function()
       local dap = require("dap")
@@ -293,8 +309,50 @@ return {
     },
     main = "dap-python",
     ft = "python",
+    keys = {
+      {
+        "<leader>dh",
+        function()
+          require('dap-python').test_method()
+        end,
+        mode = "n",
+        desc = "Test Python Method"
+      },
+    },
     config = function()
-      require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+      require("dap-python").setup("uv")
+      local dap = require("dap")
+
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Debug Python File",
+          program = "${file}",
+          console = "internalConsole",  -- or "integratedTerminal" for terminal output
+          -- Optional: if you need a venv interpreter
+          -- pythonPath = "/path/to/venv/bin/python",
+        },
+        {
+          type = "python",
+          request = "launch",
+          name = "Debug pytest: Current File",
+          module = "pytest",
+          args = {
+            "${file}",
+            "-svv",
+            -- "--no-cov", -- if coverage breaks debugpy
+          },
+          console = "internalConsole",
+          exception_breakpoints = { "raised", "unhandled" },
+        },
+      }
+
+    dap.listeners.after["event_initialized"]["set_python_exceptions"] = function()
+      if dap.session() and dap.session().config.type == "python" then
+        dap.set_exception_breakpoints({ "raised", "handled" })
+      end
+    end
     end
   },
   {
