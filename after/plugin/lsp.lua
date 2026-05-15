@@ -235,3 +235,14 @@ vim.lsp.enable('tombi')
 -- or
 -- npm install basedpyright
 vim.lsp.enable('basedpyright')
+
+-- Fix for indenting in python
+vim.g.python_indent = {
+  disable_parentheses_indenting = false,
+  closed_paren_align_last_line = false,
+  searchpair_timeout = 150,
+
+  continue = "shiftwidth()",          -- continuation: same indent as code, not 2×
+  open_paren = "shiftwidth()",        -- after (, don’t indent 2×
+  nested_paren = "shiftwidth()",      -- inside nested parens, also 1×
+}
