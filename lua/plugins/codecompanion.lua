@@ -57,10 +57,10 @@ return {
                   ["gpt-5-mini"] = {
                     opts = { has_vision = true, can_reason = true, stream = true },
                   },
-                  ["gpt-5.1"] = {
+                  ["gpt-5.4"] = {
                     opts = { has_vision = true, can_reason = true, stream = true },
                   },
-                  ["gpt-5.4"] = {
+                  ["gpt-5.5"] = {
                     opts = { has_vision = true, can_reason = true, stream = true },
                   },
                   ["gpt-5-nano"] = {
