@@ -60,6 +60,8 @@ return {
         -- https://github.com/mvdan/sh
         ["bash"] = { "shfmt", lsp_format = "fallback" },
         ["sh"] = { "shfmt", lsp_format = "fallback" },
+        -- cargo install stylua
+        ["lua"] = { "stylua" },
       },
     },
     lazy = true,
