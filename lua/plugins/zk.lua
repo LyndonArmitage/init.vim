@@ -2,6 +2,7 @@ return {
 	"zk-org/zk-nvim",
 	dependencies = { "nvim-telescope/telescope.nvim" },
 	name = "zk",
+	ft = "markdown",
 	keys = {
 		{ "<leader>zl", "<cmd>ZkInsertLink<cr>", desc = "Zk insert link" },
 		{ "<leader>zL", ":'<,'>ZkInsertLinkAtSelection<cr>", mode = "v", desc = "Zk link selection" },
@@ -19,18 +20,18 @@ return {
 			"<leader>zd",
 			function()
 				local zk = require("zk")
-        local util = require("zk.util")
+				local util = require("zk.util")
 
-        local root_dir = util.notebook_root(vim.fn.expand('%:p'))
-        if root_dir == nil then
-          vim.notify("Not in a zk notebook", vim.log.levels.ERROR)
-          return
-        end
+				local root_dir = util.notebook_root(vim.fn.expand("%:p"))
+				if root_dir == nil then
+					vim.notify("Not in a zk notebook", vim.log.levels.ERROR)
+					return
+				end
 
-        path = root_dir .. "/daily"
-        vim.notify("Opening daily note", vim.log.levels.INFO)
+				path = root_dir .. "/daily"
+				vim.notify("Opening daily note", vim.log.levels.INFO)
 				zk.new({
-				  dir = path,
+					dir = path,
 				})
 			end,
 			desc = "Zk daily",
@@ -39,18 +40,18 @@ return {
 			"<leader>zm",
 			function()
 				local zk = require("zk")
-        local util = require("zk.util")
+				local util = require("zk.util")
 
-        local root_dir = util.notebook_root(vim.fn.expand('%:p'))
-        if root_dir == nil then
-          vim.notify("Not in a zk notebook", vim.log.levels.ERROR)
-          return
-        end
+				local root_dir = util.notebook_root(vim.fn.expand("%:p"))
+				if root_dir == nil then
+					vim.notify("Not in a zk notebook", vim.log.levels.ERROR)
+					return
+				end
 
-        path = root_dir .. "/meetings"
-        vim.notify("Opening meeting note", vim.log.levels.INFO)
+				path = root_dir .. "/meetings"
+				vim.notify("Opening meeting note", vim.log.levels.INFO)
 				zk.new({
-				  dir = path,
+					dir = path,
 				})
 			end,
 			desc = "Zk new meeting",
