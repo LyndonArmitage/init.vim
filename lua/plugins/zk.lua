@@ -37,6 +37,20 @@ return {
 			desc = "Zk daily",
 		},
 		{
+			"<leader>zy",
+			function()
+				local zk = require("zk")
+
+				zk.edit({
+					dir = "daily",
+					created = "yesterday",
+				}, {
+					title = "Yesterday's daily note",
+				})
+			end,
+			desc = "Open yesterday's daily note",
+		},
+		{
 			"<leader>zm",
 			function()
 				local zk = require("zk")
