@@ -27,7 +27,8 @@ vim.lsp.config('harper_ls', {
         IgnoreLinkTitle = false
       },
       diagnosticSeverity = "hint",
-      isolateEnglish = false
+      isolateEnglish = false,
+      dialect = "British"
     }
   }
 })
