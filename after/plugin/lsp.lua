@@ -224,6 +224,9 @@ vim.lsp.config('dm_langserver', {
 
 vim.lsp.enable('dm_langserver')
 
+-- Godot
+vim.lsp.enable('gdscript')
+
 -- Add tombi for toml files
 -- sudo pacman -S tombi
 -- Or: uv tool install tombi
