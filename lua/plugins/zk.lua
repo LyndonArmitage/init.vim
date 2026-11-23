@@ -22,7 +22,7 @@ return {
 					end
 					local default_title = note.title or note.path
 
-					vim.ui.input({ prompt = "Link text: ", default = default_title }, function(input)
+					vim.ui.input({ prompt = "Link text: ", default = default_title, scope="cursor" }, function(input)
 						if input == nil then
 							return -- cancelled
 						end
