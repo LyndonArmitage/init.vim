@@ -4,8 +4,40 @@ return {
 	name = "zk",
 	ft = "markdown",
 	keys = {
-		{ "<leader>zl", "<cmd>ZkInsertLink<cr>", desc = "Zk insert link" },
 		{ "<leader>zL", ":'<,'>ZkInsertLinkAtSelection<cr>", mode = "v", desc = "Zk link selection" },
+    --{ "<leader>zl", "<cmd>ZkInsertLink<cr>", desc = "Zk insert link" },
+		{
+			"<leader>zl",
+			function()
+				local zk = require("zk")
+				local api = require("zk.api")
+				local util = require("zk.util")
+
+				-- Capture the cursor position now, before the picker takes focus
+				local location = util.get_lsp_location_from_caret()
+
+				zk.pick_notes({}, { title = "Zk Insert link (custom title)", multi_select = false }, function(note)
+					if note == nil then
+						return
+					end
+					local default_title = note.title or note.path
+
+					vim.ui.input({ prompt = "Link text: ", default = default_title }, function(input)
+						if input == nil then
+							return -- cancelled
+						end
+						local link_title = input ~= "" and input or default_title
+
+						api.link(note.path, location, nil, { title = link_title }, function(err)
+							if err then
+								error(err)
+							end
+						end)
+					end)
+				end)
+			end,
+			desc = "Zk insert link (edit title)",
+		},
 		{ "<leader>zn", "<cmd>ZkNew<cr>", desc = "Zk new note" },
 		{ "<leader>zk", "<cmd>ZkNotes<cr>", desc = "Zk list notes" },
 		{
@@ -28,7 +60,7 @@ return {
 					return
 				end
 
-				path = root_dir .. "/daily"
+				local path = root_dir .. "/daily"
 				vim.notify("Opening daily note", vim.log.levels.INFO)
 				zk.new({
 					dir = path,
