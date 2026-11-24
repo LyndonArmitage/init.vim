@@ -1,10 +1,8 @@
 -- File type configs
 
 -- Markdown
-local markdown_group = vim.api.nvim_create_augroup(
-  'markdown',
-  { clear = false }
-)
+local markdown_group =
+  vim.api.nvim_create_augroup("markdown", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown,md",
   group = markdown_group,
@@ -20,10 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Git specifically
-local git_group = vim.api.nvim_create_augroup(
-  'git',
-  { clear = false }
-)
+local git_group = vim.api.nvim_create_augroup("git", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   group = git_group,
@@ -40,10 +35,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- LaTeX
-local latex_group = vim.api.nvim_create_augroup(
-  'latex',
-  { clear = false }
-)
+local latex_group = vim.api.nvim_create_augroup("latex", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "tex",
   group = latex_group,
@@ -54,10 +46,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Mutt emails
-local mutt_group = vim.api.nvim_create_augroup(
-  'mutt',
-  { clear = false }
-)
+local mutt_group = vim.api.nvim_create_augroup("mutt", { clear = false })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*mutt-*",
   group = mutt_group,
@@ -71,10 +60,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- Gemini files
-local gemini_group = vim.api.nvim_create_augroup(
-  'gemini',
-  { clear = false }
-)
+local gemini_group = vim.api.nvim_create_augroup("gemini", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gmi",
   group = gemini_group,
@@ -90,15 +76,13 @@ vim.api.nvim_create_autocmd("FileType", {
 -- For now will match all .conf files
 local hocon_group = vim.api.nvim_create_augroup("hocon", { clear = true })
 vim.api.nvim_create_autocmd(
-  { 'BufNewFile', 'BufRead' },
-  { group = hocon_group, pattern = '*.conf', command = 'set ft=hocon' }
+  { "BufNewFile", "BufRead" },
+  { group = hocon_group, pattern = "*.conf", command = "set ft=hocon" }
 )
 
 -- Quickfix window
-local quickfix_group = vim.api.nvim_create_augroup(
-  'quickfix',
-  { clear = false }
-)
+local quickfix_group =
+  vim.api.nvim_create_augroup("quickfix", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   group = quickfix_group,
@@ -111,18 +95,18 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "dm", "dreammaker" },
   callback = function()
-    vim.bo.expandtab = false  -- Use tabs, not spaces
-    vim.bo.tabstop = 4        -- Visual width of tab characters
-    vim.bo.shiftwidth = 4     -- Indent size when using >> or <<
-    vim.bo.softtabstop = 4    -- Editing-level tab width
+    vim.bo.expandtab = false -- Use tabs, not spaces
+    vim.bo.tabstop = 4 -- Visual width of tab characters
+    vim.bo.shiftwidth = 4 -- Indent size when using >> or <<
+    vim.bo.softtabstop = 4 -- Editing-level tab width
   end,
 })
 
 local tfvars_group = vim.api.nvim_create_augroup("tfvars", { clear = true })
 
 -- fix highlighting in *.tfvars
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   group = tfvars_group,
-  pattern = { '*.tfvars' },
-  command = 'set ft=terraform',
+  pattern = { "*.tfvars" },
+  command = "set ft=terraform",
 })

@@ -22,7 +22,7 @@ vim.opt.smartindent = true
 
 -- Line numbers and mouse support
 vim.opt.number = true
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 vim.opt.relativenumber = true
 
 -- Disable wrapping

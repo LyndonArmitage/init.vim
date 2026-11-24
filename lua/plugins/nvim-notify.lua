@@ -4,5 +4,5 @@ return {
   config = function()
     -- Set default notification to this plugin
     vim.notify = require("notify")
-  end
+  end,
 }

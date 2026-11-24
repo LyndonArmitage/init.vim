@@ -1,7 +1,7 @@
 -- A writing LSP
 -- https://writewithharper.com/docs/integrations/neovim
 -- Can install with pacman
-vim.lsp.config('harper_ls', {
+vim.lsp.config("harper_ls", {
   filetypes = { "markdown", "gitcommit", "html", "mail", "plaintext" },
   settings = {
     ["harper-ls"] = {
@@ -18,19 +18,19 @@ vim.lsp.config('harper_ls', {
         RepeatedWords = true,
         Spaces = true,
         Matcher = true,
-        CorrectNumberSuffix = true
+        CorrectNumberSuffix = true,
       },
       codeActions = {
-        ForceStable = false
+        ForceStable = false,
       },
       markdown = {
-        IgnoreLinkTitle = false
+        IgnoreLinkTitle = false,
       },
       diagnosticSeverity = "hint",
       isolateEnglish = false,
-      dialect = "British"
-    }
-  }
+      dialect = "British",
+    },
+  },
 })
 
-vim.lsp.enable('harper_ls')
+vim.lsp.enable("harper_ls")

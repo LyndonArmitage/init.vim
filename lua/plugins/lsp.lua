@@ -3,37 +3,43 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "saadparwaiz1/cmp_luasnip"
+      "saadparwaiz1/cmp_luasnip",
     },
   },
   { "hrsh7th/cmp-nvim-lsp" },
   {
     "saadparwaiz1/cmp_luasnip",
     dependencies = {
-      "L3MON4D3/LuaSnip"
-    }
+      "L3MON4D3/LuaSnip",
+    },
   },
-  { 'kosayoda/nvim-lightbulb' },
+  { "kosayoda/nvim-lightbulb" },
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
     build = "make install_jsregexp",
     dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
-      local ls = require('luasnip')
+      local ls = require("luasnip")
 
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      vim.keymap.set({ "i" }, "<C-K>", function() ls.expand({}) end, { silent = true })
-      vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
-      vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
+      vim.keymap.set({ "i" }, "<C-K>", function()
+        ls.expand({})
+      end, { silent = true })
+      vim.keymap.set({ "i", "s" }, "<C-L>", function()
+        ls.jump(1)
+      end, { silent = true })
+      vim.keymap.set({ "i", "s" }, "<C-J>", function()
+        ls.jump(-1)
+      end, { silent = true })
 
       vim.keymap.set({ "i", "s" }, "<C-E>", function()
         if ls.choice_active() then
           ls.change_choice(1)
         end
       end, { silent = true })
-    end
+    end,
   },
   { "rafamadriz/friendly-snippets" },
 
@@ -93,24 +99,28 @@ return {
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-nvim-lsp",
       "nvim-lua/plenary.nvim",
-      "mfussenegger/nvim-dap"
+      "mfussenegger/nvim-dap",
     },
     ft = { "scala", "sbt", "java" },
     opts = function()
       local metals_config = require("metals").bare_config()
-      metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+      metals_config.capabilities =
+        require("cmp_nvim_lsp").default_capabilities()
       metals_config.settings.testUserInterface = "Test Explorer"
       metals_config.settings.serverVersion = "latest.snapshot" -- Maybe remove?
       metals_config.init_options.statusBarProvider = "off"
       metals_config.init_options.testExplorerProvider = true
       metals_config.on_attach = function(client, bufnr)
         require("metals").setup_dap()
-        vim.keymap.set("n", "<leader>t", function() require("telescope").extensions.metals.commands() end,
-          { desc = "Toggle Metals Telescope" })
-        vim.keymap.set("n", "<leader>Tr", function() require("metals.tvp").toggle_tree_view() end,
-          { desc = "Toggle Metals Tree View" })
-        vim.keymap.set("n", "<leader>TR", function() require("metals.tvp").reveal_in_tree() end,
-          { desc = "Reveal in Metals Tree View" })
+        vim.keymap.set("n", "<leader>t", function()
+          require("telescope").extensions.metals.commands()
+        end, { desc = "Toggle Metals Telescope" })
+        vim.keymap.set("n", "<leader>Tr", function()
+          require("metals.tvp").toggle_tree_view()
+        end, { desc = "Toggle Metals Tree View" })
+        vim.keymap.set("n", "<leader>TR", function()
+          require("metals.tvp").reveal_in_tree()
+        end, { desc = "Reveal in Metals Tree View" })
       end
       return metals_config
     end,
@@ -119,9 +129,9 @@ return {
         pattern = { "scala", "sbt", "java" },
         callback = function()
           require("metals").initialize_or_attach(metals_config)
-        end
+        end,
       })
-    end
+    end,
   },
 
   -- Basic info for LSP messages etc
@@ -136,7 +146,7 @@ return {
     dependencies = {
       "theHamsta/nvim-dap-virtual-text",
       "stevearc/overseer.nvim",
-      { "igorlfs/nvim-dap-view", opts = {} }
+      { "igorlfs/nvim-dap-view", opts = {} },
     },
     keys = {
       -- DAP keybinds based on: https://github.com/scalameta/nvim-metals/discussions/39
@@ -146,7 +156,7 @@ return {
           require("dap").continue()
         end,
         mode = "n",
-        desc = "Continue debugging"
+        desc = "Continue debugging",
       },
       {
         "<leader>dr",
@@ -154,7 +164,7 @@ return {
           require("dap").repl.toggle()
         end,
         mode = "n",
-        desc = "Toggle Debug REPL"
+        desc = "Toggle Debug REPL",
       },
       {
         "<leader>dK",
@@ -162,7 +172,7 @@ return {
           require("dap.ui.widgets").hover()
         end,
         mode = "n",
-        desc = "Show Debug hover widgets"
+        desc = "Show Debug hover widgets",
       },
       {
         "<leader>dt",
@@ -170,14 +180,14 @@ return {
           require("dap").toggle_breakpoint()
         end,
         mode = "n",
-        desc = "Toggle Breakpoint"
+        desc = "Toggle Breakpoint",
       },
       {
         "<leader>dT",
         function()
-          require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
+          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end,
-        desc = "Toggle Breakpoint Condition"
+        desc = "Toggle Breakpoint Condition",
       },
       {
         "<leader>dso",
@@ -185,7 +195,7 @@ return {
           require("dap").step_over()
         end,
         mode = "n",
-        desc = "Step Over"
+        desc = "Step Over",
       },
       {
         "<leader>dsi",
@@ -193,7 +203,7 @@ return {
           require("dap").step_into()
         end,
         mode = "n",
-        desc = "Step Into"
+        desc = "Step Into",
       },
       {
         "<leader>dl",
@@ -201,7 +211,7 @@ return {
           require("dap").run_last()
         end,
         mode = "n",
-        desc = "Run Last Debug Run"
+        desc = "Run Last Debug Run",
       },
       {
         "<leader>dq",
@@ -209,7 +219,7 @@ return {
           require("dap").terminate()
         end,
         mode = "n",
-        desc = "Terminate Debug Run"
+        desc = "Terminate Debug Run",
       },
       {
         "<leader>da",
@@ -217,7 +227,7 @@ return {
           require("dap").set_exception_breakpoints({ "raised" })
         end,
         mode = "n",
-        desc = "Break on raised exceptions"
+        desc = "Break on raised exceptions",
       },
       {
         "<leader>dA",
@@ -225,7 +235,7 @@ return {
           require("dap").set_exception_breakpoints({ "raised", "unhandled" })
         end,
         mode = "n",
-        desc = "Break on all exceptions"
+        desc = "Break on all exceptions",
       },
     },
     config = function()
@@ -249,9 +259,10 @@ return {
           metals = {
             runType = "runOrTestFile",
             args = function()
-              local input = vim.fn.input("Program arguments (space-separated): ")
+              local input =
+                vim.fn.input("Program arguments (space-separated): ")
               return vim.fn.split(input, " ", true)
-            end
+            end,
           },
         },
         {
@@ -277,14 +288,14 @@ return {
       -- }
 
       dap.adapters.codelldb = {
-        type = 'server',
+        type = "server",
         port = "1300",
         executable = {
-          command = '/usr/bin/codelldb',
+          command = "/usr/bin/codelldb",
           args = { "--port", "1300" },
           -- On windows you may have to uncomment this:
           -- detached = false,
-        }
+        },
       }
 
       dap.configurations.cpp = {
@@ -293,21 +304,25 @@ return {
           type = "codelldb",
           request = "launch",
           program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            return vim.fn.input(
+              "Path to executable: ",
+              vim.fn.getcwd() .. "/",
+              "file"
+            )
           end,
-          cwd = '${workspaceFolder}',
+          cwd = "${workspaceFolder}",
           stopOnEntry = false,
         },
       }
 
       dap.configurations.rust = dap.configurations.cpp
       dap.configurations.c = dap.configurations.cpp
-    end
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",
     dependencies = {
-      "mfussenegger/nvim-dap"
+      "mfussenegger/nvim-dap",
     },
     main = "dap-python",
     ft = "python",
@@ -315,10 +330,10 @@ return {
       {
         "<leader>dh",
         function()
-          require('dap-python').test_method()
+          require("dap-python").test_method()
         end,
         mode = "n",
-        desc = "Test Python Method"
+        desc = "Test Python Method",
       },
     },
     config = function()
@@ -331,7 +346,7 @@ return {
           request = "launch",
           name = "Debug Python File",
           program = "${file}",
-          console = "internalConsole",  -- or "integratedTerminal" for terminal output
+          console = "internalConsole", -- or "integratedTerminal" for terminal output
           -- Optional: if you need a venv interpreter
           -- pythonPath = "/path/to/venv/bin/python",
         },
@@ -350,25 +365,25 @@ return {
         },
       }
 
-    dap.listeners.after["event_initialized"]["set_python_exceptions"] = function()
-      if dap.session() and dap.session().config.type == "python" then
-        dap.set_exception_breakpoints({ "raised", "handled" })
+      dap.listeners.after["event_initialized"]["set_python_exceptions"] = function()
+        if dap.session() and dap.session().config.type == "python" then
+          dap.set_exception_breakpoints({ "raised", "handled" })
+        end
       end
-    end
-    end
+    end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = true,
-    opts = {}
+    opts = {},
   },
   -- DAP Support for cmp
   {
     "rcarriga/cmp-dap",
     lazy = true,
     dependencies = {
-      "mfussenegger/nvim-dap"
-    }
+      "mfussenegger/nvim-dap",
+    },
   },
 
   { -- This plugin
@@ -387,7 +402,7 @@ return {
       "MakeitToggleResults",
       "MakeitRedo",
       "OverseerRun",
-      "OverseerToggle"
+      "OverseerToggle",
     },
   },
   {
@@ -398,6 +413,5 @@ return {
     },
     event = "LspAttach",
     opts = {},
-  }
-
+  },
 }

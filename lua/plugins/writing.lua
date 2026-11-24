@@ -1,7 +1,7 @@
 return {
   -- Writing Plugins
   {
-    'preservim/vim-pencil',
+    "preservim/vim-pencil",
     cmd = {
       "Pencil",
       "NoPencil",
@@ -11,8 +11,7 @@ return {
       "SoftPencil",
       "PencilSoft",
       "HardPencil",
-      "PencilHard"
+      "PencilHard",
     },
   },
-
 }

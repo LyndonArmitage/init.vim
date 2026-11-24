@@ -30,31 +30,28 @@ return {
             end
             local default_title = note.title or note.path
 
-            vim.ui.input(
-              {
-                prompt = "Link text: ",
-                default = default_title,
-                scope = "cursor",
-              },
-              function(input)
-                if input == nil then
-                  return -- cancelled
-                end
-                local link_title = input ~= "" and input or default_title
-
-                api.link(
-                  note.path,
-                  location,
-                  nil,
-                  { title = link_title },
-                  function(err)
-                    if err then
-                      error(err)
-                    end
-                  end
-                )
+            vim.ui.input({
+              prompt = "Link text: ",
+              default = default_title,
+              scope = "cursor",
+            }, function(input)
+              if input == nil then
+                return -- cancelled
               end
-            )
+              local link_title = input ~= "" and input or default_title
+
+              api.link(
+                note.path,
+                location,
+                nil,
+                { title = link_title },
+                function(err)
+                  if err then
+                    error(err)
+                  end
+                end
+              )
+            end)
           end
         )
       end,

@@ -1,16 +1,16 @@
 return {
   "folke/zen-mode.nvim",
   cmd = {
-    "ZenMode"
+    "ZenMode",
   },
   keys = {
     {
       "<leader>zz",
       function()
-        require("zen-mode").setup {
+        require("zen-mode").setup({
           window = {
             width = 100,
-            options = {}
+            options = {},
           },
           plugins = {
             twilight = { enabled = false },
@@ -36,23 +36,23 @@ return {
               vim.cmd("PencilOff")
             end
           end,
-        }
+        })
         require("zen-mode").toggle()
       end,
       mode = "n",
-      desc = "Toggle Zen Mode"
+      desc = "Toggle Zen Mode",
     },
     {
       "<leader>zZ",
       function()
-        require("zen-mode").setup {
+        require("zen-mode").setup({
           window = {
             width = 90,
             options = {
               signcolumn = "no",
               number = false,
               relativenumber = false,
-            }
+            },
           },
           plugins = {
             twilight = { enabled = true },
@@ -78,11 +78,11 @@ return {
               vim.cmd("PencilOff")
             end
           end,
-        }
+        })
         require("zen-mode").toggle()
       end,
       mode = "n",
-      desc = "Toggle Full Zen Mode"
+      desc = "Toggle Full Zen Mode",
     },
-  }
+  },
 }

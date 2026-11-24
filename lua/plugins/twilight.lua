@@ -4,7 +4,7 @@ return {
     "Twilight",
     "TwilightEnable",
     "TwilightDisable",
-    "ZenMode"
+    "ZenMode",
   },
   opts = {
     -- your configuration comes here

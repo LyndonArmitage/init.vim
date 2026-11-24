@@ -6,10 +6,10 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require('nightfox').setup({
+      require("nightfox").setup({
         options = {
-          transparent = true
-        }
+          transparent = true,
+        },
       })
       vim.cmd.colorscheme("nightfox")
     end,
@@ -20,39 +20,69 @@ return {
     "stevearc/oil.nvim",
     opts = {
       view_options = {
-        show_hidden = true
-      }
-    }
+        show_hidden = true,
+      },
+    },
   },
 
   -- Useful commands for plugins
   {
     "nvim-lua/plenary.nvim",
-    lazy = false
+    lazy = false,
   },
 
   -- fuzzy file finder
   {
     "nvim-telescope/telescope.nvim",
-    tag = 'v0.2.2',
+    tag = "v0.2.2",
     -- or                              , branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
-      vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = "Find Git Files" })
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live Grep" })
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find Buffer" })
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Find Help Tags" })
-      vim.keymap.set('n', 'z=', builtin.spell_suggest, { desc = "Spelling Suggestions" })
+      local builtin = require("telescope.builtin")
+      vim.keymap.set(
+        "n",
+        "<leader>ff",
+        builtin.find_files,
+        { desc = "Find Files" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>gf",
+        builtin.git_files,
+        { desc = "Find Git Files" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>fg",
+        builtin.live_grep,
+        { desc = "Live Grep" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>fb",
+        builtin.buffers,
+        { desc = "Find Buffer" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>fh",
+        builtin.help_tags,
+        { desc = "Find Help Tags" }
+      )
+      vim.keymap.set(
+        "n",
+        "z=",
+        builtin.spell_suggest,
+        { desc = "Spelling Suggestions" }
+      )
 
       require("telescope").load_extension("fzf")
-    end
+    end,
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = 'make',
-    dependencies = { "nvim-telescope/telescope.nvim" }
+    build = "make",
+    dependencies = { "nvim-telescope/telescope.nvim" },
   },
 
   -- Icons used by other plugins
@@ -60,13 +90,12 @@ return {
 
   -- Status Line
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("lualine").setup({})
-    end
+    end,
   },
-
 
   -- Git related plugins
   {
@@ -90,14 +119,14 @@ return {
       "Glgrep",
       "GMove",
       "GDelete",
-      "GBrowse"
+      "GBrowse",
     },
     dependencies = {
       -- Adds ability to GBrowse to GitHub
       "tpope/vim-rhubarb",
       -- Adds ability to GBrowse GitLab
       "shumphrey/fugitive-gitlab.vim",
-    }
+    },
   },
   -- Git signs are nice to have to show changes at a glance
   {
@@ -108,9 +137,9 @@ return {
       {
         "<leader>gd",
         "<cmd>Gitsigns preview_hunk<cr>",
-        desc = "Preview Hunk"
+        desc = "Preview Hunk",
       },
-    }
+    },
   },
 
   -- pretty diagnostics
@@ -165,9 +194,9 @@ return {
     },
     opts = {
       show_icons = true,
-      leader_key = ';',        -- Recommended to be a single key
-      buffer_leader_key = 'm', -- Per Buffer Mappings
-    }
+      leader_key = ";", -- Recommended to be a single key
+      buffer_leader_key = "m", -- Per Buffer Mappings
+    },
   },
 
   -- Automatic pasting
@@ -179,7 +208,7 @@ return {
 
   -- PlantUML Syntax is not supported by Tree Sitter
   { "aklt/plantuml-syntax" },
-  { "tyru/open-browser.vim",       lazy = true },
+  { "tyru/open-browser.vim", lazy = true },
   {
     "weirongxu/plantuml-previewer.vim",
     dependencies = {
@@ -192,7 +221,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {}
+    opts = {},
   },
   -- // TODO: Foo
 
@@ -225,7 +254,7 @@ return {
 
   {
     "ccraciun/vim-dreammaker",
-    ft = { "dm", "dreammaker" }
+    ft = { "dm", "dreammaker" },
   },
 
   -- Adds surrounding motions with extended textobjects
@@ -265,12 +294,14 @@ return {
   -- Render markdown more nicely
   -- Not 100% sure of this one as I sometimes like plain markdown
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
     ft = { "markdown", "codecompanion" },
-  }
-
+  },
 }
