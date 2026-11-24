@@ -61,7 +61,7 @@ return {
         ["bash"] = { "shfmt", lsp_format = "fallback" },
         ["sh"] = { "shfmt", lsp_format = "fallback" },
         -- cargo install stylua
-        ["lua"] = { "stylua" },
+        ["lua"] = { "stylua", lsp_format = "never" },
       },
     },
     lazy = true,
