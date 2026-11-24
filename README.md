@@ -16,12 +16,14 @@ These were rewritten from Vimscript to Lua at the end of 2023.
   in the config for it
 - A [Nerd Font](https://www.nerdfonts.com/) isn't strictly needed but is nice
   to have
+- `stylua` for formatting the lua files
+- `prek` or `pre-commit` if you want to ensure style is maintained
 
 ## Plugin Management
 
 Plugin management is an annoying thing in vim as there are so many solutions!
 
-Before 2024 I used [Vundle](https://github.com/VundleVim/Vundle.vipm), and 
+Before 2024 I used [Vundle](https://github.com/VundleVim/Vundle.vipm), and
 switched to [vim-plug](https://github.com/junegunn/vim-plug) at some point.
 
 At the end of 2023 I switched to permanently using NeoVim and the plugin
