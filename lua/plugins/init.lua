@@ -208,15 +208,15 @@ return {
 
   -- PlantUML Syntax is not supported by Tree Sitter
   { "aklt/plantuml-syntax" },
-  { "tyru/open-browser.vim", lazy = true },
-  {
-    "weirongxu/plantuml-previewer.vim",
-    dependencies = {
-      "aklt/plantuml-syntax",
-      "tyru/open-browser.vim",
-    },
-    ft = "plantuml",
-  },
+  -- { "tyru/open-browser.vim", lazy = true },
+  -- {
+  --   "weirongxu/plantuml-previewer.vim",
+  --   dependencies = {
+  --     "aklt/plantuml-syntax",
+  --     "tyru/open-browser.vim",
+  --   },
+  --   ft = "plantuml",
+  -- },
   -- Add comment highlighting
   {
     "folke/todo-comments.nvim",
